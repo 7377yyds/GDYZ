@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<link rel="preload" as="image" href="./gundam-bg.webp" fetchpriority="high">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080e24">
@@ -52,9 +50,7 @@ svg{display:block}
 }
 .grid-bg{
   z-index:-3;opacity:.25;
-  background-image: url("./gundam-bg.webp");
-
-:linear-gradient(#6cdcff1b 1px,transparent 1px),
+  background-image:linear-gradient(#6cdcff1b 1px,transparent 1px),
     linear-gradient(90deg,#6cdcff1b 1px,transparent 1px);
   background-size:55px 55px;
   mask-image:linear-gradient(transparent,#000 45%,transparent);
@@ -260,79 +256,85 @@ body.effects-off #flowers,body.effects-off #particles{display:none}
   *,*::before{animation:none!important;transition:none!important}
   #flowers,#particles{display:none}
 }
-/* 建立独立层叠环境，让负层级背景显示在正文后方 */
-body {
-  position: relative;
-  isolation: isolate;
+</style>
+/* 建立独立层叠环境，让负层级背景正常显示 */
+body{
+  position:relative;
+  isolation:isolate;
+  min-height:100vh;
 }
 
-/* 全屏机甲樱花背景：替换原来的纯色渐变背景 */
-.ambient {
-  position: fixed;
-  inset: 0;
-  z-index: -4;
-  pointer-events: none;
+/* 全屏图片背景：不参与布局，不影响按钮点击 */
+.site-background{
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:60% center;
+  opacity:.6;
+  pointer-events:none;
+  user-select:none;
+}
 
+/* 原来的纯色底层改成透明光晕，避免遮住图片 */
+.ambient{
+  z-index:-4;
   background:
-    linear-gradient(
-      180deg,
-      rgba(7, 11, 27, 0.25) 0%,
-      rgba(7, 11, 27, 0.42) 55%,
-      rgba(7, 11, 27, 0.65) 100%
+    radial-gradient(
+      ellipse at 8% 16%,
+      rgba(18,103,188,.14),
+      transparent 45%
     ),
-    url("./gundam-bg.jpg") center center / cover no-repeat;
+    radial-gradient(
+      ellipse at 94% 42%,
+      rgba(191,38,127,.10),
+      transparent 44%
+    );
+}
 
-  background-color: #070b1b;
+/* 网格淡一点，让樱花和机甲更清楚 */
+.grid-bg{
+  opacity:.12;
 }
 
 /* 隐藏原来的矢量机甲插画 */
-.mecha-bg {
-  display: none;
+.mecha-bg{
+  display:none;
 }
 
-/* 保留科技网格，降低遮挡 */
-.grid-bg {
-  opacity: 0.16;
-}
-
-/* 半透明内容面板：透出背景，同时保证文字清晰 */
-.panel {
-  background: linear-gradient(
+/* 面板保留足够对比度，兼顾背景和文字阅读 */
+.panel{
+  background:linear-gradient(
     125deg,
-    rgba(10, 23, 46, 0.80),
-    rgba(24, 13, 43, 0.76)
+    rgba(16,30,58,.86),
+    rgba(18,16,42,.84)
   );
-  border-color: rgba(133, 223, 255, 0.32);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
 }
 
-/* 顶部和侧边导航 */
-.topbar {
-  background: rgba(8, 14, 36, 0.88);
-}
-
-.sidebar {
-  background: rgba(10, 19, 44, 0.86);
-}
-
-/* 加强背景上方文字的可读性 */
-.eyebrow,
-.subtitle,
-.section-head,
-footer {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
-}
-
-/* 手机竖屏：优先显示画面中央偏右的机甲 */
-@media (max-width: 760px) {
-  .ambient {
-    background-position: center, 60% center;
+/* 手机上自动裁切横图，尽量保留机甲头部 */
+@media(max-width:760px){
+  .site-background{
+    object-position:60% center;
   }
 }
 
-</style>
 </head>
 <body id="home">
+<img
+  class="site-background"
+  src="./gundam-bg.webp"
+  alt=""
+  aria-hidden="true"
+  width="1866"
+  height="1049"
+  fetchpriority="high"
+  loading="eager"
+  decoding="async"
+>
+
 <div class="ambient" aria-hidden="true"></div>
 <div class="grid-bg" aria-hidden="true"></div>
 <canvas id="particles" aria-hidden="true"></canvas>
@@ -865,6 +867,10 @@ motionPreference.addEventListener("change",event=>{
 document.addEventListener("visibilitychange",syncEffects);
 addEventListener("resize",resizeCanvas,{passive:true});
 resizeCanvas();syncEffects();
+</script>
+</body>
+</html>
+
 </script>
 </body>
 </html>
