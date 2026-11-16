@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<link rel="preload" as="image" href="./gundam-bg.webp" fetchpriority="high">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080e24">
@@ -50,7 +52,9 @@ svg{display:block}
 }
 .grid-bg{
   z-index:-3;opacity:.25;
-  background-image:linear-gradient(#6cdcff1b 1px,transparent 1px),
+  background-image: url("./gundam-bg.webp");
+
+:linear-gradient(#6cdcff1b 1px,transparent 1px),
     linear-gradient(90deg,#6cdcff1b 1px,transparent 1px);
   background-size:55px 55px;
   mask-image:linear-gradient(transparent,#000 45%,transparent);
