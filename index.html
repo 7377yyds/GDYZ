@@ -5,15 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080e24">
 <title>💎7377高达宇宙💎｜机甲是男人的浪漫</title>
-
-<link rel="preload"
-      as="image"
-      href="./gundam-bg.webp"
-      type="image/webp"
-      fetchpriority="high">
-
 <style>
-
 :root{
   color-scheme:dark;
   --bg:#070b1b;--panel:rgba(11,19,43,.9);
@@ -264,68 +256,90 @@ body.effects-off #flowers,body.effects-off #particles{display:none}
   *,*::before{animation:none!important;transition:none!important}
   #flowers,#particles{display:none}
 }
-/* ===== 樱花高达全屏背景 ===== */
-
-/* 建立独立层叠环境，让背景稳定显示在内容底层 */
-body{
-  position:relative;
-  isolation:isolate;
-  min-height:100vh;
+/* 独立的页面层叠环境，确保负层级背景仍然可见 */
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
 }
 
-/* 使用已有的背景容器，无需额外添加 HTML */
-.ambient{
-  position:fixed;
-  inset:0;
-  z-index:-4;
-  pointer-events:none;
-
-  background-color:#080e24;
-  background-image:
-    linear-gradient(
-      rgba(7,11,27,.30),
-      rgba(7,11,27,.50)
-    ),
-    url("./gundam-bg.webp");
-
-  background-position:center,center;
-  background-size:cover,cover;
-  background-repeat:no-repeat;
+/* 固定铺满可视窗口，滚动网页时保持原位 */
+.video-background {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  overflow: hidden;
+  pointer-events: none;
+  background: #070b1b;
 }
 
-/* 隐藏旧网格与旧机甲插画，突出图片 */
+.video-background video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 适度压暗背景，保证文字易读 */
+.video-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 8, 22, 0.38);
+}
+
+/* 关闭原来的背景装饰，露出视频 */
+.ambient,
 .grid-bg,
-.mecha-bg{
-  display:none;
+.mecha-bg {
+  display: none !important;
 }
 
-/* 调整卡片透明度，让背景透出，同时保持文字可读 */
-.panel{
-  background:linear-gradient(
+/* 面板适度透明，能看到后方视频 */
+.panel {
+  background: linear-gradient(
     125deg,
-    rgba(10,20,42,.82),
-    rgba(18,16,42,.78)
+    rgba(16, 30, 58, 0.80),
+    rgba(18, 16, 42, 0.78)
   );
 }
 
-.sidebar{
-  background:rgba(10,19,44,.88);
-}
+/* 减少手机上的背景模糊计算 */
+@media (max-width: 760px) {
+  .topbar {
+    backdrop-filter: none;
+    background: rgba(8, 14, 36, 0.94);
+  }
 
-.topbar{
-  background:rgba(8,14,36,.90);
-}
-
-/* 手机竖屏适当调整取景，让机甲主体更突出 */
-@media(max-width:760px){
-  .ambient{
-    background-position:center,60% center;
+  .sidebar {
+    backdrop-filter: none;
+    background: rgba(10, 19, 44, 0.95);
   }
 }
-</style>
-</head>
 
+</style>
+<link rel="preload" as="image" href="./background-cover.webp">
+
+</head>
 <body id="home">
+<!-- 全屏视频背景 -->
+<div class="video-background" aria-hidden="true">
+  <video
+    id="backgroundVideo"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster="./background-cover.webp"
+    tabindex="-1"
+    disablepictureinpicture
+  >
+    <source src="./background.mp4" type="video/mp4">
+  </video>
+</div>
+
 <div class="ambient" aria-hidden="true"></div>
 <div class="grid-bg" aria-hidden="true"></div>
 <canvas id="particles" aria-hidden="true"></canvas>
@@ -834,30 +848,103 @@ function createFlower(){
   flower.addEventListener("animationend",()=>flower.remove(),{once:true});
   setTimeout(()=>flower.remove(),(seconds+1)*1000);
 }
-function syncEffects(){
-  cancelAnimationFrame(frameId);clearInterval(flowerTimer);
-  document.body.classList.toggle("effects-off",!effectsEnabled);
-  $("#effectsButton").textContent="动态特效："+(effectsEnabled?"开启":"关闭");
-  $("#effectsButton").setAttribute("aria-pressed",String(effectsEnabled));
-  if(effectsEnabled&&!document.hidden){
-    lastTime=performance.now();
-    if(ctx)frameId=requestAnimationFrame(draw);
-    createFlower();flowerTimer=setInterval(createFlower,1800);
-  }else $("#flowers").replaceChildren();
+/* 视频播放与页面可见状态、特效开关保持一致 */
+const backgroundVideo = document.getElementById("backgroundVideo");
+
+function syncBackgroundVideo() {
+  if (!backgroundVideo) return;
+
+  backgroundVideo.muted = true;
+
+  if (!effectsEnabled || document.hidden) {
+    backgroundVideo.pause();
+    return;
+  }
+
+  const playPromise = backgroundVideo.play();
+
+  if (playPromise) {
+    playPromise.catch(() => {
+      // 浏览器限制自动播放时，保留封面或当前画面。
+    });
+  }
 }
-$("#effectsButton").addEventListener("click",()=>{
-  if(motionPreference.matches){
+
+/* 首次触摸或点击后，尝试恢复被浏览器阻止的自动播放 */
+document.addEventListener("pointerdown", syncBackgroundVideo, {
+  once: true,
+  passive: true
+});
+
+function syncEffects() {
+  syncBackgroundVideo();
+  cancelAnimationFrame(frameId);
+  clearInterval(flowerTimer);
+
+  document.body.classList.toggle("effects-off", !effectsEnabled);
+  document.documentElement.style.scrollBehavior =
+    effectsEnabled ? "" : "auto";
+
+  $("#effectsButton").textContent =
+    "动态特效：" + (effectsEnabled ? "开启" : "关闭");
+
+  $("#effectsButton").setAttribute(
+    "aria-pressed",
+    String(effectsEnabled)
+  );
+
+  const runDecorations =
+    effectsEnabled &&
+    !document.hidden &&
+    innerWidth > 760;
+
+  if (!runDecorations) {
+    $("#flowers").replaceChildren();
+    if (ctx) ctx.clearRect(0, 0, width, height);
+    return;
+  }
+
+  lastTime = performance.now();
+
+  if (ctx) {
+    frameId = requestAnimationFrame(draw);
+  }
+
+  createFlower();
+  flowerTimer = setInterval(createFlower, 1800);
+}
+
+$("#effectsButton").addEventListener("click", () => {
+  if (motionPreference.matches) {
     notify("系统已启用减少动态效果，页面遵循系统设置。");
     return;
   }
-  effectsEnabled=!effectsEnabled;syncEffects();
+
+  effectsEnabled = !effectsEnabled;
+  syncEffects();
 });
-motionPreference.addEventListener("change",event=>{
-  effectsEnabled=!event.matches;syncEffects();
+
+motionPreference.addEventListener("change", event => {
+  effectsEnabled = !event.matches;
+  syncEffects();
 });
-document.addEventListener("visibilitychange",syncEffects);
-addEventListener("resize",resizeCanvas,{passive:true});
-resizeCanvas();syncEffects();
+
+document.addEventListener("visibilitychange", syncEffects);
+
+const desktopPreference = matchMedia("(min-width: 761px)");
+desktopPreference.addEventListener("change", syncEffects);
+
+addEventListener("resize", () => {
+  resizeCanvas();
+  updateNavigation();
+
+  // 切回桌面布局时，清理手机目录的展开状态。
+  if (innerWidth > 760) menu(false);
+}, { passive: true });
+
+resizeCanvas();
+syncEffects();
+updateNavigation();
 </script>
 </body>
 </html>
