@@ -3,870 +3,864 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080c25">
+<meta name="theme-color" content="#080e24">
 <title>💎7377高达宇宙💎｜机甲是男人的浪漫</title>
 <style>
-:root {
-  color-scheme: dark;
-  --bg:#080c25;
-  --panel:rgba(12,19,47,.92);
-  --line:rgba(92,187,255,.26);
-  --text:#edf5ff;
-  --muted:#b1c3df;
-  --cyan:#55eaff;
-  --pink:#ff7dd5;
-  --gold:#ffe18b;
+:root{
+  color-scheme:dark;
+  --bg:#070b1b;--panel:rgba(11,19,43,.9);
+  --cyan:#67edff;--pink:#ff74ce;--gold:#ffe091;
+  --text:#edf5ff;--muted:#adbed7;--border:#69dfff38;
 }
-* { box-sizing:border-box }
-html { scroll-behavior:smooth; scroll-padding-top:100px }
-body {
-  margin:0;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
   font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.8;
-  overflow-x:hidden;
+  line-height:1.75;overflow-x:hidden;
 }
-a { color:inherit; text-decoration:none }
-button,input { font:inherit }
-button,a,input { -webkit-tap-highlight-color:transparent }
-button { cursor:pointer }
-a:focus-visible,button:focus-visible,input:focus-visible {
-  outline:3px solid var(--gold); outline-offset:5px;
+a{color:var(--cyan);text-decoration:none}
+button,input{font:inherit}
+button,a,input{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid var(--gold);outline-offset:4px
 }
-::selection { background:#704de5; color:white }
-.space {
-  position:fixed; inset:0; z-index:-3;
+button{cursor:pointer}
+button,.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  border:1px solid #70e4ff66;border-radius:10px;
+  background:linear-gradient(135deg,#174472,#24234f);
+  color:#fff;padding:9px 15px;text-decoration:none;
+  transition:background .2s,box-shadow .2s,transform .2s;
+}
+button:hover,.btn:hover{
+  background:#225c83;box-shadow:0 0 22px #53dfff30;
+  transform:translateY(-2px)
+}
+.btn.pink{background:linear-gradient(135deg,#733564,#432a7a);border-color:#ff8ad288}
+svg{display:block}
+#particles,.ambient,.grid-bg,.mecha-bg,#flowers{
+  position:fixed;inset:0;pointer-events:none
+}
+.ambient{
+  z-index:-4;background:
+    radial-gradient(ellipse at 8% 16%,#1267bc55,transparent 45%),
+    radial-gradient(ellipse at 94% 42%,#bf267f3b,transparent 44%),
+    radial-gradient(ellipse at 50% 98%,#6126ac44,transparent 50%),#070b1b
+}
+.grid-bg{
+  z-index:-3;opacity:.25;
+  background-image:linear-gradient(#6cdcff1b 1px,transparent 1px),
+    linear-gradient(90deg,#6cdcff1b 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:linear-gradient(transparent,#000 45%,transparent);
+}
+#particles{z-index:-1;width:100%;height:100%}
+.mecha-bg{
+  z-index:-2;left:auto;top:12%;right:-140px;
+  width:min(880px,95vw);height:85vh;opacity:.21;
+  filter:drop-shadow(0 0 22px #4bddff);
+  animation:mechaFloat 9s ease-in-out infinite
+}
+#flowers{z-index:5;overflow:hidden}
+.iris{
+  position:absolute;left:100%;top:var(--top);width:var(--size);
+  opacity:0;filter:drop-shadow(0 0 7px #b880ff);
+  animation:irisFly var(--duration) linear forwards
+}
+@keyframes irisFly{
+  8%{opacity:.65}88%{opacity:.65}
+  100%{transform:translateX(calc(-100vw - 100px)) translateY(-65px) rotate(-30deg);opacity:0}
+}
+@keyframes mechaFloat{50%{transform:translateY(-22px) rotate(1deg)}}
+@keyframes spectrum{to{background-position:200% center}}
+@keyframes glow{50%{filter:brightness(1.3);text-shadow:0 0 22px #a897ff88}}
+@keyframes scan{to{transform:translateX(460%)}}
+.topbar{
+  position:sticky;top:0;z-index:30;border-bottom:1px solid var(--border);
+  background:#080e24ed;backdrop-filter:blur(18px);
+}
+.top-inner{
+  max-width:1600px;margin:auto;padding:12px 24px;
+  display:flex;align-items:center;gap:18px
+}
+.brand{font-weight:900;letter-spacing:2px;white-space:nowrap;color:#fff}
+.brand b{color:var(--cyan)}
+.top-nav{display:flex;gap:6px;overflow:auto;flex:1;scrollbar-width:thin}
+.top-nav a{
+  flex-shrink:0;white-space:nowrap;padding:7px 11px;
+  border-radius:8px;font-size:14px;color:var(--muted)
+}
+.top-nav a:hover,.top-nav a.active{color:#fff;background:#54dfff20}
+#menuButton{display:none;white-space:nowrap}
+.layout{max-width:1540px;margin:auto;display:grid;grid-template-columns:210px minmax(0,1fr);gap:30px;padding:0 26px}
+.sidebar{
+  position:sticky;top:94px;align-self:start;
+  max-height:calc(100dvh - 115px);overflow:auto;
+  margin-top:35px;padding:18px 12px;border:1px solid var(--border);
+  border-radius:16px;background:#0a132ce8;backdrop-filter:blur(15px);z-index:20
+}
+.side-label{margin:0 10px 14px;color:var(--cyan);letter-spacing:3px;font-size:12px}
+.side-nav{display:grid;gap:7px}
+.side-nav a{
+  padding:12px;border:1px solid transparent;border-radius:9px;
+  color:var(--muted);font-size:14px
+}
+.side-nav a span{font-family:monospace;color:#69dfff88;margin-right:10px}
+.side-nav a:hover,.side-nav a.active{
+  color:#fff;border-color:#6ceaff44;background:linear-gradient(90deg,#18a9dc25,#754bff15)
+}
+.side-bottom{font-size:12px;color:var(--muted);padding:18px 10px 0;border-top:1px solid var(--border);margin-top:18px}
+main{min-width:0}
+.hero{position:relative;text-align:center;padding:90px 12px 65px}
+.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:5px}
+h1{
+  font-size:clamp(30px,4.8vw,67px);line-height:1.4;margin:20px 0;
+  background:linear-gradient(100deg,#77edff,#f7ffff,#ff8bcf,#d7a0ff,#77edff);
+  background-size:200% auto;color:transparent;background-clip:text;
+  -webkit-background-clip:text;animation:spectrum 5s linear infinite,glow 4s ease-in-out infinite;
+}
+.subtitle{font-size:clamp(17px,2vw,25px);color:#ffd1e9;letter-spacing:4px;margin-bottom:25px}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.hero-stats{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-stats span{font-size:12px;padding:5px 12px;border:1px solid var(--border);border-radius:20px;color:#b9d8ed;background:#0b1e36a6}
+section{scroll-margin-top:100px;margin-bottom:34px}
+.section-head{display:flex;align-items:center;gap:14px;margin:0 0 15px}
+.number{
+  font-size:27px;font-family:monospace;font-weight:bold;color:var(--cyan);
+  border-left:3px solid var(--pink);padding-left:13px;text-shadow:0 0 20px #65dfff66
+}
+h2{font-size:clamp(20px,2.3vw,28px);margin:0;line-height:1.5}
+h3{color:#d5f6ff;margin:0 0 14px;font-size:19px}
+h4{margin:0 0 8px;font-size:16px;color:#dff7ff}
+p{margin:8px 0 14px}
+.panel{
+  position:relative;overflow:hidden;padding:25px;margin-bottom:16px;
+  border:1px solid var(--border);border-radius:17px;
+  background:linear-gradient(125deg,#101e3aeb,#12102ae8);
+  box-shadow:0 12px 35px #0002
+}
+.panel::before{
+  content:"";position:absolute;top:0;left:-30%;height:2px;width:30%;
+  background:linear-gradient(90deg,transparent,#67edff,#ff74ce,transparent);
+  animation:scan 7s linear infinite;pointer-events:none
+}
+.muted{color:var(--muted);font-size:14px}
+.tip{padding:12px 15px;background:#59dfff0c;border-left:3px solid var(--cyan);color:#c2e5f3;border-radius:0 9px 9px 0;font-size:14px}
+.warning{border-left-color:var(--gold);background:#ffd8670b;color:#ffe8b6}
+.copy-line{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+.copy-line code{font-size:clamp(17px,2.7vw,26px);color:var(--gold);overflow-wrap:anywhere}
+.badge{display:inline-block;padding:3px 10px;border:1px solid #b895ff66;color:#d7bbff;border-radius:6px;font-size:12px;margin:0 7px 8px 0}
+.key-grid,.command-grid,.resource-grid,.link-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px
+}
+.key-card,.command-card,.resource-card,.link-card{
+  padding:17px;border:1px solid #8aa9e328;border-radius:12px;background:#060e2090;min-width:0
+}
+.key-card p,.command-card p,.resource-card p{font-size:14px;color:var(--muted);margin:7px 0}
+kbd{
+  display:inline-block;font:700 14px system-ui;color:#101b35;background:var(--cyan);
+  border-radius:5px;padding:2px 9px;box-shadow:0 3px 0 #3c819d;margin-right:6px
+}
+.command-card h4{color:#91e6ff}
+.command-copy{display:flex;align-items:center;gap:8px;margin-top:10px}
+.command-copy code{
+  flex:1;min-width:0;white-space:pre-wrap;overflow-wrap:anywhere;
+  color:#ffe4a3;background:#020816b3;padding:8px 10px;border-radius:7px;font-size:13px;user-select:all
+}
+.command-copy button{font-size:12px;padding:7px 10px;flex-shrink:0}
+.command-copy.short code{color:#f1b8ff}
+.command-label{font-size:11px;color:#a897c4;margin-top:8px}
+.input-row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+input{
+  min-width:0;padding:10px 12px;border:1px solid #70dcff55;
+  background:#050d20;color:#fff;border-radius:8px;flex:1
+}
+.steps{list-style:none;padding:0;margin:0;counter-reset:step}
+.steps li{position:relative;padding:0 0 24px 48px;counter-increment:step}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{
+  content:counter(step);position:absolute;left:0;top:0;width:31px;height:31px;
+  display:grid;place-items:center;background:#144568;border:1px solid #70e4ff77;border-radius:9px;color:var(--cyan);font-weight:bold
+}
+.steps li p{color:var(--muted);font-size:14px}
+.tier-nav{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.tier-nav a{padding:6px 12px;border:1px solid var(--border);border-radius:8px;background:#0a1833;font-size:13px}
+.tier{scroll-margin-top:100px}
+.tier h3{border-left:4px solid var(--a);padding-left:12px;color:var(--a)}
+.mech-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mech-card{padding:14px;border:1px solid color-mix(in srgb,var(--a) 30%,transparent);background:#060d1e90;border-radius:10px}
+.mech-name{
+  font-weight:bold;font-size:16px;
+  background:linear-gradient(110deg,var(--a),#fff,var(--b),var(--a));
+  background-size:200% auto;background-clip:text;-webkit-background-clip:text;color:transparent;
+  animation:spectrum 4s linear infinite,glow 3.5s ease-in-out infinite
+}
+.mech-card:nth-child(2n) .mech-name{animation-delay:-1.4s}
+.mech-card small{display:block;margin-top:6px;color:var(--muted)}
+.link-card{display:block;transition:border-color .2s,transform .2s}
+.link-card:hover{border-color:var(--cyan);transform:translateY(-3px)}
+.link-card strong{display:block;color:#e3faff;font-size:17px}
+.link-card span{display:block;font-size:13px;color:var(--muted);margin-top:7px}
+.link-card.lottery{border-color:#ffcf6877;background:linear-gradient(130deg,#59381e77,#49204566)}
+.link-card.lottery strong{color:var(--gold)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 0 40px}
+#toast{
+  position:fixed;bottom:26px;left:50%;transform:translate(-50%,20px);z-index:90;
+  background:#132b40;border:1px solid var(--cyan);color:#fff;padding:11px 22px;
+  border-radius:12px;opacity:0;pointer-events:none;transition:.2s;max-width:90vw
+}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+.tools{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px}
+.tools button,.tools a{font-size:12px}
+#backdrop{display:none}
+noscript p{padding:16px;background:#4b2634}
+@media(min-width:1450px){.command-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1050px){
+  .layout{grid-template-columns:180px minmax(0,1fr);gap:20px;padding:0 18px}
+  .mech-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .top-inner{gap:10px;padding:10px 16px}
+  .brand{font-size:14px}
+}
+@media(max-width:760px){
+  html{scroll-padding-top:128px}
+  section,.tier{scroll-margin-top:128px}
+  .top-inner{flex-wrap:wrap}
+  .brand{flex:1}
+  #menuButton{display:inline-flex;font-size:13px;padding:5px 10px}
+  .top-nav{order:3;flex-basis:100%}
+  .top-nav a{font-size:12px;padding:5px 9px}
+  .layout{display:block;padding:0 14px}
+  .sidebar{
+    position:fixed;top:117px;bottom:15px;left:12px;width:235px;
+    margin:0;max-height:none;transform:translateX(-270px);transition:transform .25s;z-index:45
+  }
+  body.menu-open .sidebar{transform:translateX(0)}
+  body.menu-open #backdrop{display:block;position:fixed;inset:110px 0 0;background:#0008;z-index:40}
+  .hero{padding:55px 0 40px}
+  .eyebrow{font-size:10px;letter-spacing:3px}
+  .subtitle{letter-spacing:1px}
+  .panel{padding:18px}
+  .key-grid,.command-grid,.resource-grid{grid-template-columns:1fr}
+  .link-grid{gap:9px}
+  .link-card{padding:13px}
+  .mech-grid{gap:8px}
+  .mech-card{padding:11px}
+  .mech-name{font-size:14px}
+  .mecha-bg{width:620px;right:-220px;opacity:.17}
+}
+body.effects-off *,body.effects-off *::before{animation:none!important;scroll-behavior:auto!important}
+body.effects-off #flowers,body.effects-off #particles{display:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before{animation:none!important;transition:none!important}
+  #flowers,#particles{display:none}
+}
+/* 建立独立层叠环境，让负层级背景显示在正文后方 */
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+/* 全屏机甲樱花背景：替换原来的纯色渐变背景 */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+
   background:
-    radial-gradient(ellipse at 12% 12%,#20469b88,transparent 45%),
-    radial-gradient(ellipse at 90% 40%,#83208c66,transparent 48%),
-    radial-gradient(ellipse at 50% 100%,#00788855,transparent 55%),
-    #080c25;
+    linear-gradient(
+      180deg,
+      rgba(7, 11, 27, 0.25) 0%,
+      rgba(7, 11, 27, 0.42) 55%,
+      rgba(7, 11, 27, 0.65) 100%
+    ),
+    url("./gundam-bg.jpg") center center / cover no-repeat;
+
+  background-color: #070b1b;
 }
-.space::after {
-  content:""; position:absolute; inset:0;
-  background-image:linear-gradient(#62ddff09 1px,transparent 1px),
-                   linear-gradient(90deg,#62ddff09 1px,transparent 1px);
-  background-size:52px 52px;
-  mask-image:linear-gradient(black,transparent);
+
+/* 隐藏原来的矢量机甲插画 */
+.mecha-bg {
+  display: none;
 }
-#particles { position:fixed; inset:0; z-index:-2; pointer-events:none }
-.mech-bg {
-  position:fixed; top:8vh; left:50%; width:min(1100px,130vw);
-  height:85vh; transform:translateX(-50%);
-  opacity:.16; z-index:-1; pointer-events:none;
-  filter:drop-shadow(0 0 24px #259bff);
+
+/* 保留科技网格，降低遮挡 */
+.grid-bg {
+  opacity: 0.16;
 }
-.iris-layer { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:6 }
-.iris {
-  position:absolute; left:-100px; top:var(--y);
-  width:var(--size); height:var(--size); opacity:0;
-  animation:irisFly var(--duration) linear var(--delay) infinite;
-  filter:drop-shadow(0 0 7px #ad83ff88);
+
+/* 半透明内容面板：透出背景，同时保证文字清晰 */
+.panel {
+  background: linear-gradient(
+    125deg,
+    rgba(10, 23, 46, 0.80),
+    rgba(24, 13, 43, 0.76)
+  );
+  border-color: rgba(133, 223, 255, 0.32);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
 }
-@keyframes irisFly {
-  0% { transform:translateX(-80px) rotate(-20deg); opacity:0 }
-  8%,88% { opacity:.55 }
-  50% { margin-top:35px }
-  100% { transform:translateX(calc(100vw + 200px)) rotate(45deg); opacity:0 }
+
+/* 顶部和侧边导航 */
+.topbar {
+  background: rgba(8, 14, 36, 0.88);
 }
-.hero { padding:65px 20px 38px; text-align:center; position:relative; overflow:hidden }
-.eyebrow { font-size:12px; letter-spacing:5px; color:var(--cyan); margin:0 0 16px }
-h1 {
-  margin:0; font-size:clamp(30px,6.2vw,66px); line-height:1.4;
-  letter-spacing:3px; color:#c4f7ff;
-  text-shadow:0 0 22px #42b8ff88,3px 3px 0 #6437a9;
-  animation:titleGlow 4s ease-in-out infinite;
+
+.sidebar {
+  background: rgba(10, 19, 44, 0.86);
 }
-@keyframes titleGlow {
-  50% { color:#fff0ff; text-shadow:0 0 35px #ef67ffbb,-2px 2px 0 #256dc0; transform:translateY(-4px) }
+
+/* 加强背景上方文字的可读性 */
+.eyebrow,
+.subtitle,
+.section-head,
+footer {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
-.subtitle { margin:14px 0 22px; color:#ffd6ef; font-size:clamp(16px,3vw,23px); letter-spacing:2px }
-.hero-tags { display:flex; justify-content:center; flex-wrap:wrap; gap:9px }
-.tag,.badge {
-  display:inline-flex; align-items:center; padding:4px 12px;
-  border:1px solid var(--line); background:#0d2040b3; border-radius:999px;
-  font-size:12px; color:#bdefff;
+
+/* 手机竖屏：优先显示画面中央偏右的机甲 */
+@media (max-width: 760px) {
+  .ambient {
+    background-position: center, 60% center;
+  }
 }
-.hero-line {
-  height:2px; width:min(560px,80%); margin:30px auto 0;
-  background:linear-gradient(90deg,transparent,#53eaff,#d875ff,transparent);
-  box-shadow:0 0 18px #53eaff;
-}
-nav {
-  position:sticky; top:0; z-index:10;
-  background:rgba(7,12,31,.96); backdrop-filter:blur(18px);
-  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-}
-.nav-inner {
-  max-width:1200px; margin:auto; padding:12px 16px;
-  display:flex; gap:8px; overflow-x:auto; scrollbar-width:thin;
-}
-.nav-inner a {
-  flex:1 0 auto; text-align:center; font-size:13px;
-  padding:9px 13px; border:1px solid transparent; border-radius:9px;
-  color:var(--muted); transition:.2s;
-}
-.nav-inner a:hover,.nav-inner a.active {
-  background:#16456666; border-color:#59dfff66; color:#8af3ff;
-}
-main { max-width:1160px; padding:28px 20px 50px; margin:auto }
-section {
-  position:relative; margin-bottom:25px; padding:28px;
-  background:var(--panel); border:1px solid var(--line);
-  border-radius:18px; box-shadow:0 15px 50px #0003;
-  scroll-margin-top:90px; overflow:hidden;
-}
-section::before {
-  content:""; position:absolute; top:0; left:0; width:100%; height:2px;
-  background:linear-gradient(90deg,transparent,#58e8ff,#b779ff,#ff79b7,transparent);
-  background-size:200% 100%; animation:flow 6s linear infinite;
-}
-@keyframes flow { to { background-position:200% center } }
-.section-title { display:flex; align-items:center; gap:14px; margin-bottom:22px }
-.section-number {
-  display:grid; place-items:center; flex-shrink:0; width:45px; height:45px;
-  background:linear-gradient(135deg,#19446c,#362251);
-  border:1px solid #5acaff77; border-radius:12px; color:#76edff;
-  font-weight:900; font-size:20px;
-}
-h2 { margin:0; font-size:clamp(19px,3vw,25px); line-height:1.5 }
-h3 { margin:0 0 12px; font-size:18px; color:#b9eeff }
-p { margin:9px 0 }
-.muted { color:var(--muted) }
-.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px }
-.card {
-  padding:21px; background:linear-gradient(135deg,#14274999,#151931cc);
-  border:1px solid #7093bd30; border-radius:13px; min-width:0;
-}
-.server-card { border-color:#50e1ff66; box-shadow:inset 0 0 30px #1474b015 }
-.ip { font-size:clamp(18px,3vw,27px); letter-spacing:1px; color:#81edff; overflow-wrap:anywhere }
-.actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px }
-.btn {
-  display:inline-flex; justify-content:center; align-items:center; gap:7px;
-  padding:10px 17px; border:1px solid #65cfff55; border-radius:9px;
-  background:#123854; color:#e6fbff; font-size:14px; line-height:1.5;
-  transition:background .2s,transform .2s;
-}
-.btn:hover { background:#205474; transform:translateY(-2px) }
-.btn.primary { background:linear-gradient(110deg,#126fa0,#6944bc); border-color:#7ee5ff88 }
-.btn.pink { background:linear-gradient(110deg,#663288,#9b356e); border-color:#f399da66 }
-.tip {
-  margin-top:15px; padding:11px 14px;
-  border-left:3px solid #69dfff; border-radius:0 8px 8px 0;
-  background:#54bbff0b; color:#bfdbf5; font-size:14px;
-}
-.warning { border-left-color:#ffbd65; background:#ffa5460d; color:#ffe0b2 }
-.key-list { display:grid; gap:10px }
-.key-row { display:flex; align-items:flex-start; gap:15px; padding:14px; background:#07122777; border-radius:10px }
-kbd {
-  display:inline-block; flex-shrink:0; min-width:64px; text-align:center;
-  padding:4px 9px; border:1px solid #5cb9de77; border-bottom-width:3px;
-  border-radius:7px; background:#153350; color:#84ecff; font:700 14px inherit;
-}
-.key-row p { margin:0 }
-.subheading { margin:26px 0 13px; color:#efceff }
-.command {
-  display:flex; align-items:center; justify-content:space-between;
-  gap:12px; padding:15px 0; border-bottom:1px solid #ffffff10;
-}
-.command:last-child { border:0 }
-code { color:#8feaff; font-family:Consolas,monospace; font-size:16px; overflow-wrap:anywhere }
-.command p { color:var(--muted); font-size:14px; margin:4px 0 0 }
-.command .btn { flex-shrink:0; padding:7px 13px }
-.bind-input {
-  width:100%; max-width:260px; margin-top:9px; padding:9px 12px;
-  border:1px solid #6fb3e655; border-radius:7px; background:#070f26; color:white;
-}
-.steps { list-style:none; counter-reset:step; margin:0; padding:0 }
-.steps li { counter-increment:step; display:flex; gap:17px; padding:18px 0; border-bottom:1px solid #ffffff10 }
-.steps li:last-child { border:0; padding-bottom:0 }
-.steps li::before {
-  content:counter(step,decimal-leading-zero); flex-shrink:0;
-  font-size:24px; font-weight:900; color:#9a91ff; width:40px;
-}
-strong { color:#fff0cc }
-.resource-card .icon { font-size:28px; display:block; margin-bottom:8px }
-.callout { border:1px solid #ffbd6555; background:#3d29402b; padding:17px; border-radius:10px; margin-bottom:18px }
-.special { margin-bottom:14px }
-.special:last-child { margin-bottom:0 }
-.time { color:#ffe18b; font-weight:800 }
-.tier {
-  --a:#7edfff; --b:#b6c5ff; --c:#ffffff;
-  border:1px solid color-mix(in srgb,var(--a) 35%,transparent);
-  border-radius:13px; background:linear-gradient(110deg,#17233a77,#0a132a99);
-  padding:20px; margin-top:18px;
-}
-.tier-head { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:13px }
-.tier-head h3 { color:var(--a); margin:0; font-size:21px }
-.tier-head span { font-size:12px; color:var(--muted); letter-spacing:1px }
-.names { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; counter-reset:rank }
-.names li {
-  display:flex; gap:9px; align-items:center; min-width:0;
-  padding:10px 12px; border-radius:8px; background:#020a1b88; border:1px solid #ffffff0c;
-  counter-increment:rank;
-}
-.names li::before { content:counter(rank,decimal-leading-zero); font-size:11px; color:#8294b0; flex-shrink:0 }
-.mech-name {
-  color:var(--a); font-weight:800; overflow-wrap:anywhere;
-  background:linear-gradient(100deg,var(--a),var(--b),var(--c),var(--a));
-  background-size:250% 100%;
-  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-  animation:flow 5s linear infinite,nameGlow 3.8s ease-in-out infinite;
-}
-@keyframes nameGlow {
-  0%,100% { filter:brightness(1); text-shadow:0 0 8px color-mix(in srgb,var(--a) 20%,transparent) }
-  50% { filter:brightness(1.35); text-shadow:0 0 16px color-mix(in srgb,var(--a) 45%,transparent) }
-}
-.ultimate { --a:#ffe085; --b:#ff82cf; --c:#9ffaff; background:linear-gradient(120deg,#44332066,#391b5066,#123e5066) }
-.ultimate-name { font-size:clamp(21px,4vw,31px); margin:12px 0 }
-.t5 { --a:#ff879d; --b:#ffcf78; --c:#ffe2f0 }
-.t4 { --a:#d0a0ff; --b:#fa8ae4; --c:#ede0ff }
-.t3 { --a:#6cbfff; --b:#7fefff; --c:#e3f5ff }
-.t2 { --a:#5bf0d1; --b:#a4f986; --c:#e0fff1 }
-.t1 { --a:#ffe591; --b:#ffb178; --c:#fff6d6 }
-.t0 { --a:#b3c9e6; --b:#8dd0ee; --c:#ffffff }
-.tier-note { color:#ffd7c2; margin:0 0 14px; font-size:14px }
-.link-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px }
-.link-card {
-  display:block; padding:21px; border:1px solid #687be54d; border-radius:12px;
-  background:linear-gradient(120deg,#15325188,#34214d88); transition:.2s;
-}
-.link-card:hover { transform:translateY(-3px); border-color:#a498ff; box-shadow:0 7px 24px #7968ff22 }
-.link-card b { display:block; font-size:18px; color:#d5eaff }
-.link-card span { display:block; margin-top:6px; color:#bdcde5; font-size:14px }
-.link-card.lottery { background:linear-gradient(120deg,#68325d88,#5d3e2188); border-color:#ffb37066 }
-.other-servers { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:11px }
-footer { text-align:center; padding:10px 20px 40px; color:#94a6c7; font-size:13px }
-footer b { color:#b9eaff }
-.controls { position:fixed; right:16px; bottom:20px; z-index:12; display:flex; flex-direction:column; gap:8px }
-.controls .btn { padding:9px 12px; background:#0c1c3bed; box-shadow:0 5px 20px #0004; font-size:12px }
-#toast {
-  position:fixed; bottom:35px; left:50%; transform:translate(-50%,20px);
-  padding:12px 21px; border:1px solid #64dfff88; border-radius:10px;
-  background:#0b263ef5; color:#eaffff; z-index:30; opacity:0;
-  pointer-events:none; transition:.25s; max-width:85vw; text-align:center;
-}
-#toast.show { opacity:1; transform:translate(-50%,0) }
-.copy-dialog {
-  width:min(460px,90vw); background:#101c38; color:white;
-  border:1px solid #62dbff; border-radius:14px; padding:24px;
-}
-.copy-dialog::backdrop { background:#000a }
-.copy-dialog input { width:100%; padding:12px; background:#060e22; color:white; border:1px solid #63799b; border-radius:6px }
-body.effects-off *,body.effects-off *::before,body.effects-off *::after { animation:none!important }
-body.effects-off .iris-layer,body.effects-off #particles { display:none }
-@media(max-width:760px) {
-  .hero { padding-top:42px }
-  main { padding:20px 12px 40px }
-  section { padding:21px 16px; border-radius:13px }
-  .grid,.link-grid { grid-template-columns:1fr }
-  .names { grid-template-columns:repeat(2,minmax(0,1fr)) }
-  .other-servers { grid-template-columns:repeat(2,minmax(0,1fr)) }
-  .tier { padding:16px 12px }
-  .controls { right:10px; bottom:12px }
-  .key-row { gap:10px; padding:12px 10px }
-  .eyebrow { letter-spacing:3px }
-}
-@media(max-width:400px) {
-  .names { grid-template-columns:1fr }
-  .command { align-items:flex-start }
-  h1 { font-size:28px; letter-spacing:0 }
-}
-@media(prefers-reduced-motion:reduce) {
-  html { scroll-behavior:auto }
-  *,*::before,*::after { animation:none!important; transition:none!important }
-  .iris-layer,#particles { display:none }
-}
+
 </style>
 </head>
-<body id="top">
-<div class="space" aria-hidden="true"></div>
+<body id="home">
+<div class="ambient" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
 <canvas id="particles" aria-hidden="true"></canvas>
 
-<!-- 内嵌矢量机甲背景，无需加载外部图片 -->
-<svg class="mech-bg" viewBox="0 0 1000 900" fill="none" aria-hidden="true">
-  <defs>
-    <linearGradient id="armor" x1="250" y1="100" x2="730" y2="780" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8ceaff"/><stop offset=".45" stop-color="#4377dd"/>
-      <stop offset="1" stop-color="#dc6aff"/>
-    </linearGradient>
-    <linearGradient id="wing" x1="100" y1="150" x2="900" y2="600" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#00dcff"/><stop offset="1" stop-color="#f472ff"/>
-    </linearGradient>
-  </defs>
-  <g stroke="url(#wing)" stroke-width="3" fill="#173d72" fill-opacity=".4">
-    <path d="M390 340 70 150 160 400 350 510Z"/>
-    <path d="M610 340 930 150 840 400 650 510Z"/>
-    <path d="M350 410 65 300 120 490 360 560Z"/>
-    <path d="M650 410 935 300 880 490 640 560Z"/>
-    <path d="M340 490 90 470 230 650 400 600Z"/>
-    <path d="M660 490 910 470 770 650 600 600Z"/>
-  </g>
-  <g stroke="url(#armor)" stroke-width="4" fill="#102748">
-    <path d="M420 230 447 155 500 125 553 155 580 230 552 310 448 310Z"/>
-    <path d="M448 187 330 82 460 147 500 210 540 147 670 82 552 187"/>
-    <path d="M460 234 500 216 540 234 529 280 500 306 471 280Z"/>
-    <path d="M390 330 448 311 552 311 610 330 645 470 560 535 440 535 355 470Z"/>
-    <path d="M390 350 470 390 500 448 530 390 610 350 585 445 500 490 415 445Z"/>
-    <path d="M380 327 284 300 220 380 280 434 360 412Z"/>
-    <path d="M620 327 716 300 780 380 720 434 640 412Z"/>
-    <path d="M274 435 231 538 275 598 334 558 354 444Z"/>
-    <path d="M726 435 769 538 725 598 666 558 646 444Z"/>
-    <path d="M437 535 563 535 590 602 500 642 410 602Z"/>
-    <path d="M420 600 485 638 470 748 395 780 367 723Z"/>
-    <path d="M580 600 515 638 530 748 605 780 633 723Z"/>
-    <path d="M395 780 470 754 466 850 350 865 350 831Z"/>
-    <path d="M605 780 530 754 534 850 650 865 650 831Z"/>
-  </g>
-  <g fill="#7affff">
-    <path d="M447 220 486 232 481 245 448 236Z"/>
-    <path d="M553 220 514 232 519 245 552 236Z"/>
-    <path d="m500 382 24 30-24 31-24-31Z"/>
-  </g>
-  <g stroke="#56dfff" opacity=".6">
-    <circle cx="500" cy="440" r="320" stroke-dasharray="60 15 5 15"/>
-    <circle cx="500" cy="440" r="360" stroke-dasharray="3 18"/>
-    <path d="M500 30V100M500 780V880M60 440H150M850 440H940"/>
-  </g>
+<!-- 内嵌原创机甲插画，无需外部图片 -->
+<svg class="mecha-bg" viewBox="0 0 700 850" fill="none" aria-hidden="true">
+<defs>
+  <linearGradient id="armor" x2="1" y2="1">
+    <stop stop-color="#c2edff"/><stop offset=".45" stop-color="#265586"/><stop offset="1" stop-color="#141c47"/>
+  </linearGradient>
+  <linearGradient id="wing" x2="1" y2="1">
+    <stop stop-color="#5375ff"/><stop offset="1" stop-color="#ef5ad0"/>
+  </linearGradient>
+</defs>
+<g stroke="#72eaff" stroke-width="3">
+  <path d="M266 295 65 105 120 388 244 463Z" fill="url(#wing)"/>
+  <path d="m434 295 201-190-55 283-124 75Z" fill="url(#wing)"/>
+  <path d="M235 307 91 209 167 370M465 307l144-98-76 161"/>
+  <path d="m298 211 17-73h70l17 73-22 57h-60Z" fill="url(#armor)"/>
+  <path d="m336 166-96-89 70 125M364 166l96-89-70 125" fill="#ffd165" stroke="#ffe8a3"/>
+  <path d="m311 204 29 8-7 12-21-4m77-16-29 8 7 12 21-4" fill="#69ffdd" stroke="#69ffdd"/>
+  <path d="m343 224 7-14 7 14v30h-14Z" fill="#ff73ae" stroke="#ff73ae"/>
+  <path d="m286 280-71 57 34 162 101 44 101-44 34-162-71-57Z" fill="url(#armor)"/>
+  <path d="m286 292 64 44 64-44-13 76-51 33-51-33Z" fill="#1a3c9e"/>
+  <path d="m326 338 24-16 24 16-10 34h-28Z" fill="#ff6cb9" stroke="#ff8bd5"/>
+  <path d="m274 410 56 23-12 48-56-25m164-46-56 23 12 48 56-25"/>
+  <path d="m217 310-91 25-25 99 84 17 53-67Z" fill="url(#armor)"/>
+  <path d="m483 310 91 25 25 99-84 17-53-67Z" fill="url(#armor)"/>
+  <path d="m109 447-19 124 67 28 32-135m402-17 19 124-67 28-32-135" fill="url(#armor)"/>
+  <path d="m266 503-36 107 79 25 41-85 41 85 79-25-36-107" fill="url(#armor)"/>
+  <path d="m242 622-27 127 68 10 28-120m147-15 27 127-68 10-28-120" fill="url(#armor)"/>
+  <path d="m214 755-33 57h103l-1-53m203-4 33 57H416l1-53" fill="#324ca1"/>
+  <path d="M78 588 25 780" stroke="#ff78df" stroke-width="13"/>
+  <path d="M78 588 25 780" stroke="#fff" stroke-width="4"/>
+</g>
 </svg>
 
-<!-- 鸢尾花符号：紫色花瓣、金色花心与绿色茎叶 -->
+<div id="flowers" aria-hidden="true"></div>
+<!-- 可复用的鸢尾花矢量图形 -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="iris-flower" viewBox="0 0 90 110">
-      <path d="M45 55Q53 83 43 106" fill="none" stroke="#63d8ad" stroke-width="3"/>
-      <path d="M45 95Q17 73 25 66Q42 76 45 95M47 85Q72 60 70 77Q62 91 45 99" fill="#44bd9a"/>
-      <path d="M45 54C19 39 22 8 37 12C48 15 48 33 45 54" fill="#a896ff"/>
-      <path d="M45 54C40 27 47 1 59 13C72 28 57 47 45 54" fill="#c4b4ff"/>
-      <path d="M43 52C29 28 5 33 11 48C15 62 32 63 43 52" fill="#9383f5"/>
-      <path d="M47 52C60 26 84 33 80 48C75 65 57 64 47 52" fill="#ad84ee"/>
-      <path d="M44 51C17 44 9 72 24 79C39 84 45 65 44 51" fill="#7052d4"/>
-      <path d="M47 51C72 43 83 71 67 79C52 85 46 65 47 51" fill="#9864e3"/>
-      <path d="M45 48C29 60 34 84 46 87C59 81 61 59 45 48" fill="#b49aff"/>
-      <path d="m45 50-6 20 7-7 7 7-6-20" fill="#ffe48a"/>
-      <path d="M43 53 27 68M49 53 65 68" stroke="#ffe795" stroke-width="3"/>
-    </symbol>
-  </defs>
+<defs>
+<symbol id="irisFlower" viewBox="0 0 90 100">
+  <path d="M45 66Q42 84 46 100M45 88Q20 77 22 66Q40 73 45 88" fill="#54d6b7" stroke="#65f2d4" stroke-width="2"/>
+  <path d="M44 55C15 40 28 5 43 10C58 3 69 39 44 55" fill="#a385ff" stroke="#d5c3ff" stroke-width="2"/>
+  <path d="M43 53C19 18 2 31 10 50C16 65 35 65 43 53" fill="#7665eb" stroke="#c2b3ff" stroke-width="2"/>
+  <path d="M47 53C70 18 88 31 80 50C74 65 54 65 47 53" fill="#ac76ee" stroke="#e1b7ff" stroke-width="2"/>
+  <path d="M45 50C26 44 7 59 17 72C27 85 43 65 45 50" fill="#6653d4" stroke="#c2b3ff" stroke-width="2"/>
+  <path d="M45 50C64 44 83 59 73 72C63 85 47 65 45 50" fill="#a85bda" stroke="#e5b9ff" stroke-width="2"/>
+  <path d="M45 47C29 57 33 80 45 82C57 80 61 57 45 47" fill="#9064ed" stroke="#ddc7ff" stroke-width="2"/>
+  <path d="m45 50-4 16 4-4 4 4Z" fill="#ffe378"/>
+</symbol>
+</defs>
 </svg>
-<div class="iris-layer" id="irisLayer" aria-hidden="true"></div>
 
-<header class="hero">
-  <p class="eyebrow">7377 · GUNDAM UNIVERSE</p>
-  <h1>💎7377高达宇宙💎</h1>
-  <p class="subtitle">🌹机甲是男人的浪漫🌹</p>
-  <div class="hero-tags">
-    <span class="tag">ARK · 孤岛</span>
-    <span class="tag">机甲制作 / 副本挑战</span>
-    <span class="tag">新手指南 / 高达阶级表</span>
+<header class="topbar">
+  <div class="top-inner">
+    <a class="brand" href="#home"><b>7377</b> · 高达宇宙</a>
+    <button id="menuButton" aria-controls="sidebar" aria-expanded="false">☰ 左侧目录</button>
+    <nav class="top-nav" aria-label="顶部教程目录"></nav>
   </div>
-  <div class="hero-line"></div>
 </header>
-
-<nav aria-label="教程章节导航">
-  <div class="nav-inner">
-    <a href="#server" class="active">01 服务器直连</a>
-    <a href="#commands">02 按键与命令</a>
-    <a href="#start">03 进服教程</a>
-    <a href="#resources">04 资源与挑战</a>
-    <a href="#special">05 特殊玩法</a>
-    <a href="#tiers">06 高达阶级</a>
-    <a href="#links">07 视频与社群</a>
-  </div>
-</nav>
-
+<div id="backdrop"></div>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <p class="side-label">UNIVERSE / 导航目录</p>
+  <nav class="side-nav" aria-label="左侧教程目录"></nav>
+  <div class="side-bottom">💎 7377高达宇宙<br>从初阶启航，向宇宙进发。<br><a href="#home">↑ 返回首页</a></div>
+</aside>
 <main>
-<section id="server">
-  <div class="section-title">
-    <span class="section-number">01</span>
-    <h2>🎮 服务器直连</h2>
+<noscript><p>请开启 JavaScript，以显示命令列表、高达阶级表，并使用复制功能。</p></noscript>
+
+<div class="hero">
+  <div class="eyebrow">GUNDAM UNIVERSE · 7377</div>
+  <h1>💎7377高达宇宙💎</h1>
+  <div class="subtitle">🌹机甲是男人的浪漫🌹</div>
+  <div class="hero-actions">
+    <a class="btn" href="steam://connect/103.91.208.155:52013">🎮 启动 Steam 直连</a>
+    <a class="btn pink" href="#start">🚀 新手启航指南</a>
+    <a class="btn" href="#tiers">⚔ 高达阶级表</a>
   </div>
-  <div class="grid">
-    <div class="card server-card">
-      <h3>高达宇宙 <span class="badge">地图 · 孤岛</span></h3>
-      <p class="ip">103.91.208.155:52013</p>
-      <div class="actions">
-        <a class="btn primary" href="steam://connect/103.91.208.155:52013">🎮 Steam 直连服务器</a>
-        <button class="btn" type="button" data-copy="103.91.208.155:52013">复制 IP 地址</button>
-      </div>
-      <div class="tip">💡 复制 IP 地址添加到 Steam 收藏。直连按钮需本机安装 Steam，并允许浏览器打开 Steam。</div>
+  <div class="hero-stats"><span>地图 · 孤岛</span><span>18 个模组</span><span>七大教程节点</span><span>机甲 · 副本 · 宇宙</span></div>
+</div>
+
+<section id="server">
+  <div class="section-head"><span class="number">01</span><h2>🎮 服务器直连</h2></div>
+  <div class="panel">
+    <span class="badge">高达宇宙</span><span class="badge">地图【孤岛】</span>
+    <h3>准备好驾驶你的专属机甲了吗？</h3>
+    <div class="copy-line">
+      <code>103.91.208.155:52013</code>
+      <button data-copy="103.91.208.155:52013">复制 IP</button>
+      <a class="btn" href="steam://connect/103.91.208.155:52013">🎮 服务器直连</a>
     </div>
-    <div class="card">
-      <h3>🧩 高达模组合集</h3>
-      <p>总共 <strong>18 个模组</strong>，准备好你的机甲宇宙。</p>
-      <div class="actions">
-        <a class="btn pink" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3840636987" target="_blank" rel="noopener noreferrer">打开 Steam 模组合集 ↗</a>
-      </div>
-      <div class="tip">💡 点击跳转网页下载，需开启加速器加速 Steam 商店并登录账号，即可快速下载。</div>
-    </div>
+    <p class="tip">💡 复制 IP 地址添加到 Steam 收藏。直连按钮需要本机已安装 Steam，并允许浏览器打开 Steam 客户端。</p>
+  </div>
+  <div class="panel">
+    <h3>📦 高达模组合集 · 总共 18 个模组</h3>
+    <a class="btn pink" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3840636987" target="_blank" rel="noopener noreferrer">前往 Steam 创意工坊下载 ↗</a>
+    <p class="tip">💡 点击跳转网页下载，需开启加速器加速 Steam 商店并登录账号，即可快速下载。</p>
   </div>
 </section>
 
 <section id="commands">
-  <div class="section-title">
-    <span class="section-number">02</span>
-    <h2>按键丶命令使用明细</h2>
+  <div class="section-head"><span class="number">02</span><h2>按键、命令使用明细</h2></div>
+  <div class="panel">
+    <h3>⌨ 1 · 按键项</h3>
+    <div class="key-grid">
+      <div class="key-card"><h4><kbd>F2</kbd> 天宫造物</h4><p>随身工作台！作用于高达制作。</p></div>
+      <div class="key-card"><h4><kbd>F2</kbd> 专属核心</h4><p>激活、召唤专属；召唤过一次后，可长摁 F 进行快捷召唤。</p></div>
+      <div class="key-card"><h4><kbd>F6</kbd> 商城与成长</h4><p>【金币商城】【点卷商城】购买物品；【礼包】内置许多实用礼包物品，助你快速发育；【回收商城】以物换物；【任务系统】每日刷新。</p></div>
+      <div class="key-card"><h4><kbd>F9</kbd> 玩法福利</h4><p>包含【战令】【签到】【副本】。副本简介注意事项请认真查看！</p></div>
+      <div class="key-card"><h4><kbd>长摁 Y</kbd> 云端背包</h4><p>召唤云端背包，你最安全的小金库。</p></div>
+    </div>
   </div>
-  <h3>⌨️ 按键项</h3>
-  <div class="key-list">
-    <div class="key-row"><kbd>F2</kbd><p><strong>天宫造物：</strong>随身工作台！作用于高达制作。</p></div>
-    <div class="key-row"><kbd>F2</kbd><p><strong>专属核心：</strong>激活丶召唤专属，召唤过一次后，可长摁 <strong>F</strong> 进行快捷召唤。</p></div>
-    <div class="key-row"><kbd>F6</kbd><p><strong>商城：</strong>用于【金币商城】【点卷商城】购买物品；【礼包】内置许多用到的礼包物品，助你快速发育；【回收商城】以物换物；【任务系统】每日刷新。</p></div>
-    <div class="key-row"><kbd>F9</kbd><p>包含【战令】丶【签到】丶【副本】玩法福利。<strong>【副本简介注意事项请认真查看！】</strong></p></div>
-    <div class="key-row"><kbd>长摁 Y</kbd><p>召唤<strong>云端背包</strong>，你最安全的小金库。</p></div>
+  <div class="panel">
+    <h3>💬 2 · 公屏命令项</h3>
+    <div class="command-grid" id="publicCommands"></div>
+    <label for="qqNumber" class="muted">填写你的 QQ 号，生成游戏内绑定命令：</label>
+    <div class="input-row">
+      <input id="qqNumber" inputmode="numeric" autocomplete="off" placeholder="请输入你的 QQ 号" aria-label="你的QQ号">
+      <button id="copyQQ">复制我的绑定命令</button>
+    </div>
   </div>
-  <h3 class="subheading">💬 公屏命令项</h3>
-  <div class="card">
-    <div class="command">
-      <div><code>/自杀</code><p>顾名思义，CD 10 秒。</p></div>
-      <button class="btn" type="button" data-copy="/自杀">复制</button>
+  <div class="panel">
+    <h3>👥 3 · QQ 群内命令</h3>
+    <p class="muted">完整命令与快捷字母均可独立复制。带参数的命令，请替换方括号内容后发送；@用户请在 QQ 中选择实际玩家。</p>
+    <label for="steamId" class="muted">填写 SteamID，生成自己的群内绑定命令：</label>
+    <div class="input-row">
+      <input id="steamId" inputmode="numeric" autocomplete="off" placeholder="例如：76561199345758316" aria-label="你的SteamID">
+      <button id="copySteam">复制绑定命令</button>
+      <button id="copySteamShort">复制 bd 命令</button>
     </div>
-    <div class="command">
-      <div>
-        <code>/绑定 QQ号</code>
-        <p>绑定游戏自动领取 VIP。【/绑定】后面加空格，再加您的 QQ 号。</p>
-        <input class="bind-input" id="qqNumber" type="text" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="输入您的 QQ 号，生成绑定命令" aria-label="您的QQ号">
-      </div>
-      <button class="btn" id="copyBind" type="button">复制</button>
-    </div>
-    <div class="command">
-      <div><code>/领取邮件</code><p>领取抽奖丶卡密获取的物品。</p></div>
-      <button class="btn" type="button" data-copy="/领取邮件">复制</button>
-    </div>
-    <div class="command">
-      <div><code>/签到</code><p>与群内签到一致，凌晨 00:00 更新。</p></div>
-      <button class="btn" type="button" data-copy="/签到">复制</button>
-    </div>
+    <div class="command-grid" id="qqCommands"></div>
+  </div>
+  <div class="panel">
+    <h3>🎲 4 · 娱乐玩法命令</h3>
+    <div class="command-grid" id="funCommands"></div>
   </div>
 </section>
 
 <section id="start">
-  <div class="section-title"><span class="section-number">03</span><h2>🚀 进服基础教程</h2></div>
-  <ol class="steps">
-    <li><div><h3>完成基础准备</h3>完成基本加点，解锁印痕。</div></li>
-    <li><div><h3>领取新手抽奖礼盒</h3>摁 <strong>F6</strong> 打开后，右下角点击进入商城，上方选择<strong>【礼包】</strong>，领取新手<strong>【抽奖礼盒】</strong>。</div></li>
-    <li><div><h3>激活并召唤你的第一台机甲</h3>摁 <strong>F2</strong>，点击<strong>【专属核心】</strong>，进入后找到<strong>【近战机甲】【远程机甲】</strong>。消耗<strong>一块石头</strong>点击激活，在右侧栏选择后点击召唤，后续即可<strong>长摁 F</strong> 进行快捷召唤。</div></li>
-  </ol>
+  <div class="section-head"><span class="number">03</span><h2>进服基础教程</h2></div>
+  <div class="panel">
+    <ol class="steps">
+      <li><strong>完成基本加点，解锁印痕</strong><p>进入服务器后，先完成角色基本加点与印痕解锁。</p></li>
+      <li><strong>领取新手【抽奖礼盒】</strong><p>摁 F6 打开后，在右下角点击进入商城，上方选择【礼包】，领取新手【抽奖礼盒】。</p></li>
+      <li><strong>激活并召唤专属机甲</strong><p>摁 F2 打开【专属核心】，找到【近战机甲】【远程机甲】，消耗一块石头点击激活；在右侧栏选择后点击召唤。后续即可长摁 F 进行快捷召唤。</p></li>
+    </ol>
+  </div>
 </section>
 
 <section id="resources">
-  <div class="section-title"><span class="section-number">04</span><h2>资源获取 · 地图挑战 · 副本挑战</h2></div>
-  <div class="grid">
-    <div class="card resource-card">
-      <span class="icon">⛏️</span><h3>挖矿玩法</h3>
-      <p>地图内刷新各种矿场，<strong>一阶至五阶资源都有</strong>，使用<strong>【挖矿机甲】</strong>采集。</p>
-      <p class="muted">这是最安全稳妥的资源获取方式，但也是资源获取效率最低的方式。</p>
-    </div>
-    <div class="card resource-card">
-      <span class="icon">🪙</span><h3>货币获取</h3>
-      <p>在背包印痕内制作<strong>货币台</strong>，放入<strong>金属锭</strong>即可制作货币。</p>
-      <p class="muted">货币用于制作高达丶回收商城兑换特殊物品丶拍卖等途径。</p>
-    </div>
-    <div class="card resource-card">
-      <span class="icon">🦾</span><h3>地图 BOSS</h3>
-      <p>全图随机刷新巨量低阶 BOSS，有手就能打！包含定点刷新点位。</p>
-      <p>击杀获取<strong>一阶高达制作材料</strong>与<strong>副本卷</strong>！</p>
-    </div>
-    <div class="card resource-card">
-      <span class="icon">⚔️</span><h3>副本挑战</h3>
-      <p>副本分为<strong>二阶至五阶，共四种难度</strong>。挑战副本获取高阶高达制作材料与<strong>【升级卡】</strong>，提升高达等级属性！</p>
-      <p>一阶高达可挑战二阶副本，二阶可挑战三阶，以此类推。</p>
+  <div class="section-head"><span class="number">04</span><h2>资源获取 · 地图挑战 · 副本玩法</h2></div>
+  <div class="panel">
+    <div class="resource-grid">
+      <div class="resource-card"><h3>⛏ 挖矿玩法</h3><p>地图内刷新各种矿场，一阶至五阶资源都有，使用【挖矿机甲】采集。这是最安全稳妥的资源获取方式，但也是资源获取效率最低的方式。</p></div>
+      <div class="resource-card"><h3>🪙 货币获取</h3><p>背包印痕内制作货币台，放入金属锭即可制作货币。货币用于制作高达、回收商城兑换特殊物品、拍卖等途径。</p></div>
+      <div class="resource-card"><h3>👾 地图 BOSS</h3><p>全图随机刷新巨量低阶 BOSS，有手就能打！包含定点刷新点位。击杀获取一阶高达制作材料与副本卷！</p></div>
+      <div class="resource-card"><h3>⚔ 副本挑战</h3><p>副本分为四种难度：二阶至五阶。挑战副本获取高阶高达制作材料与【升级卡】，提升高达等级属性！</p><p>一阶高达可挑战二阶副本，二阶可挑战三阶，以此类推。主要玩法就是制作更多帅气高达，升级提升！</p></div>
     </div>
   </div>
-  <div class="tip">✨ 主要玩法：制作更多帅气高达，通过升级不断提升实力！</div>
 </section>
 
 <section id="special">
-  <div class="section-title"><span class="section-number">05</span><h2>🌌 特殊玩法 · 注意事项</h2></div>
-  <div class="card special">
-    <h3>01 / 剧情玩法</h3>
-    <p>每个玩家 F6 礼包内都会有三个信物<strong>【一阶神源】</strong>，用于开启剧情玩法。实力达到特定要求后，前往<strong>服主家 NPC</strong>接取任务。</p>
-    <p>总共<strong>八个任务</strong>，极其困难！完成可获取丰厚报酬与最强高达<strong>【远古自由高达宇宙神之创世者】</strong>成为专属！</p>
+  <div class="section-head"><span class="number">05</span><h2>特殊玩法 · 注意事项</h2></div>
+  <div class="panel">
+    <h3>📜 剧情玩法</h3>
+    <p>每个玩家 F6 礼包内都会有三个信物【一阶神源】，用于开启剧情玩法。实力达到特定要求后，前往服主家 NPC 接取任务。</p>
+    <p>总共八个任务，极其困难！完成可获取丰厚报酬与最强高达【远古自由高达宇宙神之创世者】，成为专属！</p>
+    <p class="tip warning">获取方式说明：本教程剧情段落写为完成八个任务，阶级表写为完成噩梦副本。两处原始说明均保留，具体获取条件请以服内规则或服主说明为准。</p>
   </div>
-  <div class="card special">
-    <h3>02 / 世界 BOSS</h3>
-    <p>每天 <span class="time">中午 12:00</span> 与 <span class="time">晚上 20:00</span>，都会刷新出强大 BOSS，击杀可获取大量奖励。</p>
-    <div class="tip warning">⚠️ 世界 BOSS 物品不会直接进入玩家背包，而是<strong>【掉落地上，需下专属拾取】</strong>。</div>
+  <div class="panel">
+    <h3>🌍 世界 BOSS</h3>
+    <span class="badge">每天中午 12:00</span><span class="badge">每天晚上 20:00</span>
+    <p>每天以上时间都会刷新出强大 BOSS，击杀可获取大量奖励。</p>
+    <p class="tip warning">⚠ 世界 BOSS 物品不会直接进入玩家背包，而是【掉落地上，需下专属拾取】。</p>
   </div>
-  <div class="card special">
-    <h3>03 / 属性注意事项</h3>
-    <p>除了副本简介注意事项，还有属性问题：低温仓内的龙放出来后，切！记！<strong>【洗点】</strong>，避免爆点丢失属性、意外阵亡！</p>
+  <div class="panel">
+    <h3>⚠ 属性与洗点</h3>
+    <p>除了副本简介注意事项，还有属性问题：低温仓内的龙放出来后，切！记！【洗点】，避免爆点、丢失属性、意外阵亡！</p>
   </div>
 </section>
 
 <section id="tiers">
-  <div class="section-title"><span class="section-number">06</span><h2>💠 高达介绍 · 阶级表</h2></div>
-  <div class="callout">
-    <strong>阶级是天谴！</strong>高阶防御和攻击力都比低阶龙高，低阶很难破高阶防御，等级很难弥补差距。<br>
-    同阶亦有差距，以下按你提供的顺序，<strong>从高到低排列</strong>。
+  <div class="section-head"><span class="number">06</span><h2>高达介绍 · 阶级战力表</h2></div>
+  <div class="panel">
+    <h3>阶级是天谴！</h3>
+    <p>高阶防御和攻击力都比低阶龙高，低阶很难破高阶防御，等级很难弥补差距。同阶亦有差距，以下按从高到低排序。</p>
+    <div class="tier-nav" id="tierNav"></div>
   </div>
-
-  <div class="tier ultimate">
-    <div class="tier-head"><h3>👑 终极高达</h3><span>ULTIMATE</span></div>
-    <p class="mech-name ultimate-name">远古自由高达宇宙神之创世者</p>
-    <p><strong>特殊机制：</strong>遇强则强，一阶至五阶都能打，唯独打不过初阶与 BOSS，<strong>只适用于玩家对战</strong>。</p>
-    <p><strong>获取方式：</strong>完成噩梦副本免费获取！每个人都能是主角，都能驾驭最强高达！</p>
-  </div>
-
-  <div class="tier t5">
-    <div class="tier-head"><h3>🔥 五阶高达</h3><span>五阶 / 同阶由高到低</span></div>
-    <p class="tier-note">⚡ 以下前六个高达只有左键一个技能，拥有超高数值。</p>
-    <ol class="names">
-      <li><span class="mech-name">地狱异神猾裹</span></li>
-      <li><span class="mech-name">异形风暴</span></li>
-      <li><span class="mech-name">无翼之主神天使</span></li>
-      <li><span class="mech-name">光之右翼万界天尊</span></li>
-      <li><span class="mech-name">光之星空拳</span></li>
-      <li><span class="mech-name">光之翼天使大护法</span></li>
-      <li><span class="mech-name">拂晓</span></li>
-      <li><span class="mech-name">关羽自由强袭</span></li>
-      <li><span class="mech-name">五毒杀戮高达</span></li>
-      <li><span class="mech-name">死神高达【最终版】</span></li>
-      <li><span class="mech-name">四大圣兽天神高达</span></li>
-      <li><span class="mech-name">死神本尊</span></li>
-      <li><span class="mech-name">死神高达</span></li>
-      <li><span class="mech-name">死神</span></li>
-    </ol>
-  </div>
-
-  <div class="tier t4">
-    <div class="tier-head"><h3>🔮 四阶高达</h3><span>T2 / 同阶由高到低</span></div>
-    <ol class="names">
-      <li><span class="mech-name">主天使高达</span></li>
-      <li><span class="mech-name">EX-S高达</span></li>
-      <li><span class="mech-name">妖天使高达</span></li>
-      <li><span class="mech-name">赤天使高达</span></li>
-      <li><span class="mech-name">阿修罗</span></li>
-      <li><span class="mech-name">DS张飞高达</span></li>
-      <li><span class="mech-name">兽战士</span></li>
-      <li><span class="mech-name">神海高达</span></li>
-      <li><span class="mech-name">女武神高达</span></li>
-    </ol>
-  </div>
-
-  <div class="tier t3">
-    <div class="tier-head"><h3>💎 三阶高达</h3><span>T3 / 同阶由高到低</span></div>
-    <ol class="names">
-      <li><span class="mech-name">双龙高达</span></li>
-      <li><span class="mech-name">高达00</span></li>
-      <li><span class="mech-name">战争高达</span></li>
-      <li><span class="mech-name">武装独角兽高达</span></li>
-      <li><span class="mech-name">兽王高达</span></li>
-      <li><span class="mech-name">GNX803T【升级版】</span></li>
-      <li><span class="mech-name">脉冲高达</span></li>
-    </ol>
-  </div>
-
-  <div class="tier t2">
-    <div class="tier-head"><h3>🍃 二阶高达</h3><span>T4 / 同阶由高到低</span></div>
-    <ol class="names">
-      <li><span class="mech-name">多鲁基斯高达</span></li>
-      <li><span class="mech-name">炽天使【改】</span></li>
-      <li><span class="mech-name">炽天使</span></li>
-      <li><span class="mech-name">暴风高达</span></li>
-      <li><span class="mech-name">Z-11高达</span></li>
-      <li><span class="mech-name">强袭高达</span></li>
-    </ol>
-  </div>
-
-  <div class="tier t1">
-    <div class="tier-head"><h3>🌟 一阶高达</h3><span>T5 / 同阶由高到低</span></div>
-    <ol class="names">
-      <li><span class="mech-name">决斗者高达</span></li>
-      <li><span class="mech-name">沙扎比高达</span></li>
-      <li><span class="mech-name">GNX803T高达</span></li>
-      <li><span class="mech-name">钢弹高达</span></li>
-      <li><span class="mech-name">陆战高达RX79G</span></li>
-      <li><span class="mech-name">陆战高达RX79G【红】</span></li>
-      <li><span class="mech-name">陆战高达RX79G【银】</span></li>
-      <li><span class="mech-name">陆战高达RX79G【金】</span></li>
-    </ol>
-  </div>
-
-  <div class="tier t0">
-    <div class="tier-head"><h3>🛡️ 初阶</h3><span>初阶 / 同阶由高到低</span></div>
-    <ol class="names">
-      <li><span class="mech-name">海盗高达XI</span></li>
-      <li><span class="mech-name">沙漠高达【改EW】</span></li>
-      <li><span class="mech-name">大天使高达</span></li>
-      <li><span class="mech-name">迪诺</span></li>
-      <li><span class="mech-name">机械猪</span></li>
-      <li><span class="mech-name">高达 GP01</span></li>
-      <li><span class="mech-name">高达</span></li>
-      <li><span class="mech-name">铁血奥尔芬</span></li>
-      <li><span class="mech-name">独角兽</span></li>
-      <li><span class="mech-name">最后骑士</span></li>
-      <li><span class="mech-name">声波</span></li>
-      <li><span class="mech-name">震荡波</span></li>
-      <li><span class="mech-name">威震天</span></li>
-      <li><span class="mech-name">霸天虎</span></li>
-      <li><span class="mech-name">隐者女战士</span></li>
-      <li><span class="mech-name">钢铁侠</span></li>
-      <li><span class="mech-name">可口可乐钢铁侠</span></li>
-      <li><span class="mech-name">百事可乐钢铁侠</span></li>
-    </ol>
-  </div>
+  <div id="mechaList"></div>
 </section>
 
 <section id="links">
-  <div class="section-title"><span class="section-number">07</span><h2>🎬 视频教程 · 高达阶级表 · 社群</h2></div>
-  <div class="link-grid">
-    <a class="link-card" href="https://v.douyin.com/2JWsodGUHFs/" target="_blank" rel="noopener noreferrer">
-      <b>▶ 抖音 · 高达新手教程 ↗</b><span>观看视频教程，了解新手玩法。</span>
-    </a>
-    <a class="link-card" href="#tiers">
-      <b>💠 查看高达阶级表 ↑</b><span>从初阶到终极，查看机甲名称与阶级排序。</span>
-    </a>
-    <a class="link-card" href="https://qm.qq.com/q/tUjNnSJAl2" target="_blank" rel="noopener noreferrer">
-      <b>💬 加入 7377 萌新服务器 ↗</b><span>点击链接加入群聊，一起探索高达宇宙。</span>
-    </a>
-    <a class="link-card lottery" href="https://buy.jry0.com/shop/ARK7377" target="_blank" rel="noopener noreferrer">
-      <b>🎁 点击前往抽奖页面 ↗</b><span>中奖概率倍高 奖品也嘛倍好</span>
-    </a>
-    <a class="link-card" href="https://qm.qq.com/q/3xOcBvKhiw" target="_blank" rel="noopener noreferrer">
-      <b>👑 联系服主 ↗</b><span>服务器咨询与问题反馈。</span>
-    </a>
-  </div>
-  <h3 class="subheading">🌐 探索其他服务器</h3>
-  <div class="other-servers">
-    <a class="btn" href="https://7377yyds.github.io/DLdl" target="_blank" rel="noopener noreferrer">🔮 斗罗服 ↗</a>
-    <a class="btn" href="https://7377yyds.github.io/Hzw" target="_blank" rel="noopener noreferrer">🏴‍☠️ 海贼王服 ↗</a>
-    <a class="btn" href="https://7377yyds.github.io/Hhuang" target="_blank" rel="noopener noreferrer">🐉 洪荒服 ↗</a>
-    <a class="btn" href="https://7377yyds.github.io/Qy" target="_blank" rel="noopener noreferrer">🌍 起源服 ↗</a>
+  <div class="section-head"><span class="number">07</span><h2>视频教程 · 高达阶级表 · 社区入口</h2></div>
+  <div class="panel">
+    <div class="link-grid">
+      <a class="link-card" href="https://v.douyin.com/2JWsodGUHFs/" target="_blank" rel="noopener noreferrer"><strong>🎬 高达新手教程 ↗</strong><span>跳转抖音，观看视频教程</span></a>
+      <a class="link-card" href="#tiers"><strong>⚔ 高达阶级表 ↑</strong><span>查看高达分级与同阶排名</span></a>
+      <a class="link-card" href="https://qm.qq.com/q/tUjNnSJAl2" target="_blank" rel="noopener noreferrer"><strong>👥 7377萌新服务器 ↗</strong><span>点击链接加入 QQ 群聊</span></a>
+      <a class="link-card lottery" href="https://buy.jry0.com/shop/ARK7377" target="_blank" rel="noopener noreferrer"><strong>🎁 前往抽奖页面 ↗</strong><span>中奖概率倍高 奖品也嘛倍好</span></a>
+      <a class="link-card" href="https://qm.qq.com/q/3xOcBvKhiw" target="_blank" rel="noopener noreferrer"><strong>💬 联系服主 ↗</strong><span>咨询服务器相关问题</span></a>
+    </div>
+    <h3 style="margin-top:25px">🌌 探索其他服务器</h3>
+    <div class="link-grid">
+      <a class="link-card" href="https://7377yyds.github.io/DLdl" target="_blank" rel="noopener noreferrer"><strong>🔮 斗罗服 ↗</strong></a>
+      <a class="link-card" href="https://7377yyds.github.io/Hzw" target="_blank" rel="noopener noreferrer"><strong>🏴‍☠️ 海贼王服 ↗</strong></a>
+      <a class="link-card" href="https://7377yyds.github.io/Hhuang" target="_blank" rel="noopener noreferrer"><strong>🔥 洪荒服 ↗</strong></a>
+      <a class="link-card" href="https://7377yyds.github.io/Qy" target="_blank" rel="noopener noreferrer"><strong>✨ 起源服 ↗</strong></a>
+    </div>
   </div>
 </section>
-</main>
 
 <footer>
-  <b>💎 7377高达宇宙 💎</b>
-  <p>🌹 机甲是男人的浪漫 🌹</p>
+  <strong>💎7377高达宇宙💎</strong><br>🌹机甲是男人的浪漫🌹
+  <div class="tools">
+    <button id="effectsButton" aria-pressed="true">动态特效：开启</button>
+    <a class="btn" href="#home">↑ 返回顶部</a>
+  </div>
 </footer>
-
-<div class="controls">
-  <button class="btn" id="effectsToggle" type="button" aria-pressed="true">✨ 动效：开</button>
-  <a class="btn" href="#top" aria-label="返回顶部">↑ 返回顶部</a>
+</main>
 </div>
 <div id="toast" role="status" aria-live="polite"></div>
-<dialog class="copy-dialog" id="copyDialog">
-  <h3>请手动复制</h3>
-  <p class="muted">浏览器未允许自动复制，请选中下方内容复制。</p>
-  <input id="manualCopy" type="text" readonly aria-label="待复制内容">
-  <form method="dialog"><div class="actions"><button class="btn" type="submit">关闭</button></div></form>
-</dialog>
 
 <script>
-(() => {
-  "use strict";
+"use strict";
+const $ = selector => document.querySelector(selector);
+const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[char]));
 
-  const toast = document.getElementById("toast");
-  let toastTimer;
-  function notify(message) {
-    toast.textContent = message;
-    toast.classList.add("show");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+const chapters = [
+  ["server","服务器直连"],["commands","按键与命令"],
+  ["start","进服基础教程"],["resources","资源与副本"],
+  ["special","特殊玩法须知"],["tiers","高达阶级介绍"],
+  ["links","视频与社区"]
+];
+$(".top-nav").innerHTML = chapters.map(([id,name]) =>
+  `<a href="#${id}">${name}</a>`).join("");
+$(".side-nav").innerHTML = chapters.map(([id,name],index) =>
+  `<a href="#${id}"><span>${String(index+1).padStart(2,"0")}</span>${name}</a>`).join("");
+
+function menu(open){
+  document.body.classList.toggle("menu-open",open);
+  $("#menuButton").setAttribute("aria-expanded",String(open));
+}
+$("#menuButton").addEventListener("click",()=>menu(!document.body.classList.contains("menu-open")));
+$("#backdrop").addEventListener("click",()=>menu(false));
+$(".side-nav").addEventListener("click",event=>{
+  if(event.target.closest("a"))menu(false);
+});
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape")menu(false);
+});
+let scrollPending=false;
+function updateNavigation(){
+  const offset=innerWidth<=760?145:120;
+  let current="";
+  for(const [id] of chapters){
+    if(document.getElementById(id).getBoundingClientRect().top<=offset)current=id;
   }
-
-  async function copyText(text) {
-    let copied = false;
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(text);
-        copied = true;
-      }
-    } catch (_) {}
-    if (!copied) {
-      const previous = document.activeElement;
-      const area = document.createElement("textarea");
-      area.value = text;
-      area.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
-      document.body.appendChild(area);
-      area.focus();
-      area.select();
-      try { copied = document.execCommand("copy"); } catch (_) {}
-      area.remove();
-      if (previous && previous.focus) previous.focus({preventScroll:true});
-    }
-    if (copied) {
-      notify("已复制：" + text);
-    } else {
-      const dialog = document.getElementById("copyDialog");
-      const input = document.getElementById("manualCopy");
-      input.value = text;
-      if (typeof dialog.showModal === "function") {
-        dialog.showModal();
-        input.focus();
-        input.select();
-      } else {
-        window.prompt("请手动复制以下内容：", text);
-      }
-    }
-  }
-
-  document.querySelectorAll("[data-copy]").forEach(button => {
-    button.addEventListener("click", () => copyText(button.dataset.copy));
+  document.querySelectorAll(".top-nav a,.side-nav a").forEach(link=>{
+    const active=link.hash==="#"+current;
+    link.classList.toggle("active",active);
+    if(active)link.setAttribute("aria-current","location");
+    else link.removeAttribute("aria-current");
   });
-  document.getElementById("copyBind").addEventListener("click", () => {
-    const input = document.getElementById("qqNumber");
-    const qq = input.value.trim();
-    if (!/^[1-9]\d{4,11}$/.test(qq)) {
-      notify("请先输入有效的 QQ 号");
-      input.focus();
-      return;
-    }
-    copyText("/绑定 " + qq);
-  });
+  scrollPending=false;
+}
+addEventListener("scroll",()=>{
+  if(!scrollPending){scrollPending=true;requestAnimationFrame(updateNavigation);}
+},{passive:true});
+updateNavigation();
 
-  const navLinks = [...document.querySelectorAll(".nav-inner a")];
-  const sections = navLinks.map(link => document.querySelector(link.getAttribute("href")));
-  let navPending = false;
-  function updateNavigation() {
-    let current = 0;
-    sections.forEach((section,index) => {
-      if (section.getBoundingClientRect().top <= 150) current = index;
-    });
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
-      current = sections.length - 1;
-    }
-    navLinks.forEach((link,index) => {
-      link.classList.toggle("active", index === current);
-      if (index === current) link.setAttribute("aria-current","location");
-      else link.removeAttribute("aria-current");
-    });
-    navPending = false;
+/* [标题, 完整命令, 说明, 快捷字母, 带参数快捷命令（可选）] */
+const publicCommands=[
+  ["自杀","/自杀","顾名思义，CD 10 秒。"],
+  ["绑定 QQ · 自动领取 VIP","/绑定 [QQ号]","/绑定 后面加空格，再填写您的 QQ 号。也可用下方输入框生成。"],
+  ["领取邮件","/领取邮件","领取抽奖、卡密获取的物品。"],
+  ["签到","/签到","与群内签到一致，凌晨 00:00 更新。"]
+];
+const qqCommands=[
+  ["签到","签到","打卡签到得奖励，与游戏内签到一致，凌晨 00:00 更新。","qd"],
+  ["绑定 SteamID","绑定 76561199345758316","绑定后加空格，再输入自己的 SteamID；这里的号码仅为示例，请替换。","bd","bd 76561199345758316"],
+  ["我的信息","我的信息","查看个人资料。","wdxx"],
+  ["金币","金币","查询金币余额。","wdjb"],
+  ["钻石","钻石","查询钻石余额。","wdzs"],
+  ["会员","会员","查询会员状态。","hy"],
+  ["下线","下线","强制自己下线，用于卡 UI、卡角色等情况。","xx"],
+  ["直连","直连","获取服务器连接。","zl"],
+  ["自杀","自杀","游戏内自杀。"]
+];
+const funCommands=[
+  ["打劫","打劫 @用户","打劫其他玩家，对方金币越多，得到的越多。","dj","dj @用户"],
+  ["防打劫保护","保护 [类型] [小时]","普通保护：6000 金币/小时；高级保护：20000 金币/小时。最高开启 5 小时，例如：保护 普通 5。","bh","bh [类型] [小时]"],
+  ["摇骰子","摇骰子 [大/小/豹子/点数] [金额]","摇骰子猜大小，选择一种下注类型并填写金额。","ysz","ysz [大/小/豹子/点数] [金额]"],
+  ["开始猜数字","猜数字 [金额]","开始猜数字游戏，填写参与金额。","csz","csz [金额]"],
+  ["猜测数字","猜 [数字]","游戏开始后，发送猜测的数字。"],
+  ["放弃猜数字","放弃猜数字","放弃当前猜数字游戏。","fqcsz"],
+  ["农场种植","农场种植","进入农场。","nczz"],
+  ["农场信息","农场信息","查看农场信息。","ncxx"],
+  ["农场播种","农场播种 [作物名]","播种指定作物。","ncbo","ncbo [作物名]"],
+  ["农场浇水","农场浇水","浇水。","ncjs"],
+  ["农场收获","农场收获","收获作物。","ncsh"],
+  ["农场偷菜","农场偷菜 @用户","偷菜；请在 QQ 中选择实际玩家进行 @。","nctc","nctc @用户"],
+  ["雇佣农场狗狗","雇佣农场狗狗 [狗狗名]","雇佣指定狗狗。","gyncgg","gyncgg [狗狗名]"],
+  ["续约农场狗狗","续约农场狗狗","续约狗狗。","xyncgg"],
+  ["升级农场","升级农场","升级农场。","sjjnc"],
+  ["农场图鉴","农场图鉴","查看图鉴。","nctj"],
+  ["农场恢复体力","农场恢复体力","恢复体力。","nchftl"],
+  ["农场帮助","农场帮助","查看帮助。","ncbz"],
+  ["钓鱼","钓鱼","开始钓鱼。","dy"],
+  ["我的钓鱼","我的钓鱼","查看钓鱼信息。","wddy"],
+  ["我的鱼竿","我的鱼竿","查看鱼竿。","wdyg"],
+  ["升级鱼竿","升级鱼竿","升级鱼竿。","sjyg"],
+  ["购买鱼饵","购买鱼饵 [数量]","购买指定数量的鱼饵。","gmye","gmye [数量]"],
+  ["钓鱼图鉴","钓鱼图鉴","查看图鉴。","dytj"],
+  ["钓鱼天气","钓鱼天气","查看天气。","dytq"]
+];
+function copyRow(text,label,short=false){
+  const safe=escapeHTML(text);
+  return `<div class="command-copy${short?" short":""}">
+    <code>${safe}</code>
+    <button data-copy="${safe}" aria-label="复制${safe}">${label}</button>
+  </div>`;
+}
+function commandCard([title,command,description,shortcut,example]){
+  return `<article class="command-card">
+    <h4>${escapeHTML(title)}</h4><p>${escapeHTML(description)}</p>
+    ${copyRow(command,"复制")}
+    ${shortcut?`<div class="command-label">快捷字母 · 独立复制</div>${copyRow(shortcut,"复制字母",true)}`:""}
+    ${example?`<div class="command-label">带参数快捷命令</div>${copyRow(example,"复制",true)}`:""}
+  </article>`;
+}
+$("#publicCommands").innerHTML=publicCommands.map(commandCard).join("");
+$("#qqCommands").innerHTML=qqCommands.map(commandCard).join("");
+$("#funCommands").innerHTML=funCommands.map(commandCard).join("");
+
+const tiers=[
+  {
+    id:"ultimate",name:"终极高达",a:"#ff8acb",b:"#ffc76c",
+    names:["远古自由高达宇宙神之创世者"],
+    note:"特殊机制：遇强则强，一阶至五阶都能打，唯独打不过初阶与 BOSS，只适用于玩家对战。",
+    extra:"获取方式：完成噩梦副本免费获取！每个人都能是主角，都能驾驭最强高达。具体条件请结合上方剧情玩法说明，以服内规则为准。"
+  },
+  {
+    id:"five",name:"五阶高达",a:"#ffd56d",b:"#ff9a72",
+    names:["地狱异神猾裹","异形风暴","无翼之主神天使","光之右翼万界天尊","光之星空拳","光之翼天使大护法","拂晓","关羽自由强袭","五毒杀戮高达","死神高达【最终版】","四大圣兽天神高达","死神本尊","死神高达","死神"],
+    note:"本阶前六个高达：只有左键一个技能，超高数值。"
+  },
+  {
+    id:"four",name:"四阶高达 · T2",a:"#c8a0ff",b:"#ee84fa",
+    names:["主天使高达","EX-S高达","妖天使高达","赤天使高达","阿修罗","DS张飞高达","兽战士","神海高达","女武神高达"]
+  },
+  {
+    id:"three",name:"三阶高达 · T3",a:"#7cb8ff",b:"#73efff",
+    names:["双龙高达","高达00","战争高达","武装独角兽高达","兽王高达","GNX803T【升级版】","脉冲高达"]
+  },
+  {
+    id:"two",name:"二阶高达 · T4",a:"#72ebbe",b:"#b5f880",
+    names:["多鲁基斯高达","炽天使【改】","炽天使","暴风高达","Z-11高达","强袭高达"]
+  },
+  {
+    id:"one",name:"一阶高达 · T5",a:"#6ce6f2",b:"#8bacff",
+    names:["决斗者高达","沙扎比高达","GNX803T高达","钢弹高达","陆战高达RX79G","陆战高达RX79G【红】","陆战高达RX79G【银】","陆战高达RX79G【金】"]
+  },
+  {
+    id:"beginner",name:"初阶",a:"#ffb18a",b:"#ffe6a3",
+    names:["海盗高达XI","沙漠高达【改EW】","大天使高达","迪诺","机械猪","高达 GP01","高达","铁血奥尔芬","独角兽","最后骑士","声波","震荡波","威震天","霸天虎","隐者女战士","钢铁侠","可口可乐钢铁侠","百事可乐钢铁侠"]
   }
-  function scheduleNavigation() {
-    if (!navPending) {
-      navPending = true;
-      requestAnimationFrame(updateNavigation);
-    }
+];
+$("#tierNav").innerHTML=tiers.map(t=>`<a href="#tier-${t.id}" style="color:${t.a}">${t.name}</a>`).join("");
+$("#mechaList").innerHTML=tiers.map(t=>`
+  <article class="panel tier" id="tier-${t.id}" style="--a:${t.a};--b:${t.b}">
+    <h3>${t.name}</h3>
+    ${t.note?`<p class="tip">${escapeHTML(t.note)}</p>`:""}
+    ${t.extra?`<p class="muted">${escapeHTML(t.extra)}</p>`:""}
+    <div class="mech-grid">${t.names.map((name,index)=>`
+      <div class="mech-card">
+        <span class="mech-name">${escapeHTML(name)}</span>
+        ${t.id==="five"&&index<6?"<small>左键单技能 · 超高数值</small>":""}
+      </div>`).join("")}
+    </div>
+  </article>`).join("");
+
+let toastTimer;
+function notify(message){
+  $("#toast").textContent=message;
+  $("#toast").classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>$("#toast").classList.remove("show"),2600);
+}
+async function copyText(text){
+  try{
+    if(!navigator.clipboard)throw new Error("clipboard unavailable");
+    await navigator.clipboard.writeText(text);
+    return true;
+  }catch{
+    const previous=document.activeElement;
+    const area=document.createElement("textarea");
+    area.value=text;
+    area.setAttribute("readonly","");
+    area.style.cssText="position:fixed;left:-9999px;top:0;font-size:16px";
+    document.body.append(area);
+    area.select();
+    area.setSelectionRange(0,text.length);
+    let ok=false;
+    try{ok=document.execCommand("copy");}catch{}
+    area.remove();
+    if(previous instanceof HTMLElement)previous.focus({preventScroll:true});
+    return ok;
   }
-  window.addEventListener("scroll", scheduleNavigation, {passive:true});
-  window.addEventListener("resize", scheduleNavigation);
-  updateNavigation();
-
-  const irisLayer = document.getElementById("irisLayer");
-  for (let i = 0; i < 12; i++) {
-    const flower = document.createElementNS("http://www.w3.org/2000/svg","svg");
-    flower.classList.add("iris");
-    flower.setAttribute("viewBox","0 0 90 110");
-    flower.style.setProperty("--y", (5 + i * 7.5) + "%");
-    flower.style.setProperty("--size", (25 + Math.random() * 18) + "px");
-    flower.style.setProperty("--duration", (24 + Math.random() * 20) + "s");
-    flower.style.setProperty("--delay", (-Math.random() * 44) + "s");
-    const use = document.createElementNS("http://www.w3.org/2000/svg","use");
-    use.setAttribute("href","#iris-flower");
-    flower.appendChild(use);
-    irisLayer.appendChild(flower);
+}
+async function performCopy(text){
+  if(await copyText(text))notify("✓ 已复制："+text);
+  else{
+    notify("自动复制未成功，请在弹窗中手动复制。");
+    window.prompt("请选中以下文字进行复制：",text);
   }
+}
+document.addEventListener("click",event=>{
+  const button=event.target.closest("[data-copy]");
+  if(button)performCopy(button.dataset.copy);
+});
+$("#copyQQ").addEventListener("click",()=>{
+  const value=$("#qqNumber").value.trim();
+  if(!/^[1-9]\d{4,11}$/.test(value)){notify("请填写正确的 QQ 号。");$("#qqNumber").focus();return;}
+  performCopy("/绑定 "+value);
+});
+function bindSteam(short){
+  const value=$("#steamId").value.trim();
+  if(!/^\d{17}$/.test(value)){notify("请填写 17 位数字 SteamID。");$("#steamId").focus();return;}
+  performCopy((short?"bd ":"绑定 ")+value);
+}
+$("#copySteam").addEventListener("click",()=>bindSteam(false));
+$("#copySteamShort").addEventListener("click",()=>bindSteam(true));
 
-  const canvas = document.getElementById("particles");
-  const ctx = canvas.getContext("2d");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const toggle = document.getElementById("effectsToggle");
-  let effectsEnabled = !reduceMotion.matches;
-  let width = 0, height = 0, points = [], streaks = [];
-  let animationId = 0, lastTime = 0;
+/* 粒子与流光：限制数量，按屏幕尺寸适配 */
+const canvas=$("#particles");
+const ctx=canvas.getContext("2d");
+const motionPreference=matchMedia("(prefers-reduced-motion: reduce)");
+let effectsEnabled=!motionPreference.matches;
+let width=0,height=0,points=[],streaks=[],frameId=0,lastTime=0,flowerTimer=0;
 
-  function resizeCanvas() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    canvas.style.width = width + "px";
-    canvas.style.height = height + "px";
-    if (!ctx) return;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    const count = width < 700 ? 36 : 68;
-    points = Array.from({length:count}, () => ({
-      x:Math.random()*width, y:Math.random()*height,
-      vx:(Math.random()-.5)*.25, vy:-.16-Math.random()*.3,
-      r:.7+Math.random()*1.6,
-      color:Math.random()>.55 ? "#b594ff" : "#68ddff"
-    }));
-    streaks = Array.from({length:5}, () => ({
-      x:Math.random()*width, y:Math.random()*height,
-      speed:1.5+Math.random()*2, length:45+Math.random()*75
-    }));
+function resizeCanvas(){
+  width=innerWidth;height=innerHeight;
+  const dpr=Math.min(devicePixelRatio||1,2);
+  canvas.width=Math.round(width*dpr);
+  canvas.height=Math.round(height*dpr);
+  if(ctx)ctx.setTransform(dpr,0,0,dpr,0,0);
+  points=Array.from({length:Math.min(100,Math.floor(width/13))},()=>({
+    x:Math.random()*width,y:Math.random()*height,
+    r:Math.random()*1.5+.5,v:Math.random()*17+7,
+    color:Math.random()>.7?"#fa7cd6":"#67deff"
+  }));
+  streaks=Array.from({length:5},()=>({
+    x:Math.random()*width,y:Math.random()*height,
+    length:60+Math.random()*100,speed:100+Math.random()*150
+  }));
+}
+function draw(time){
+  if(!effectsEnabled||document.hidden||!ctx)return;
+  const dt=Math.min((time-lastTime)/1000||0,.04);
+  lastTime=time;
+  ctx.clearRect(0,0,width,height);
+  ctx.shadowBlur=8;
+  for(const p of points){
+    p.y-=p.v*dt;
+    if(p.y<-5){p.y=height+5;p.x=Math.random()*width;}
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.color;ctx.shadowColor=p.color;ctx.fill();
   }
-
-  function draw(time) {
-    animationId = 0;
-    if (!ctx || !effectsEnabled || document.hidden) return;
-    const dt = lastTime ? Math.min((time-lastTime)/16.67,2) : 1;
-    lastTime = time;
-    ctx.clearRect(0,0,width,height);
-
-    for (const p of points) {
-      p.x += p.vx * dt;
-      p.y += p.vy * dt;
-      if (p.y < -5) { p.y = height+5; p.x = Math.random()*width; }
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-      ctx.globalAlpha = .65;
-      ctx.fillStyle = p.color;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-    }
-
-    for (let i=0; i<points.length; i++) {
-      for (let j=i+1; j<points.length; j++) {
-        const a = points[i], b = points[j];
-        const distance = Math.hypot(a.x-b.x,a.y-b.y);
-        if (distance < 115) {
-          ctx.globalAlpha = (1-distance/115)*.16;
-          ctx.strokeStyle = "#65dbff"; ctx.lineWidth = .7;
-          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-        }
+  ctx.shadowBlur=0;
+  for(let i=0;i<points.length;i++){
+    for(let j=i+1;j<Math.min(i+8,points.length);j++){
+      const a=points[i],b=points[j];
+      const distance=Math.hypot(a.x-b.x,a.y-b.y);
+      if(distance<115){
+        ctx.strokeStyle=`rgba(88,190,255,${(1-distance/115)*.18})`;
+        ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
       }
     }
-
-    ctx.globalAlpha = .6;
-    for (const s of streaks) {
-      s.x += s.speed * dt;
-      s.y += s.speed * .42 * dt;
-      if (s.x > width+150 || s.y > height+150) {
-        s.x = -120; s.y = Math.random()*height;
-      }
-      const gradient = ctx.createLinearGradient(s.x-s.length,s.y-s.length*.42,s.x,s.y);
-      gradient.addColorStop(0,"rgba(80,210,255,0)");
-      gradient.addColorStop(1,"rgba(140,230,255,.8)");
-      ctx.strokeStyle = gradient; ctx.lineWidth = 1.4;
-      ctx.beginPath(); ctx.moveTo(s.x-s.length,s.y-s.length*.42);
-      ctx.lineTo(s.x,s.y); ctx.stroke();
-    }
-    ctx.globalAlpha = 1;
-    animationId = requestAnimationFrame(draw);
   }
-
-  function syncEffects() {
-    document.body.classList.toggle("effects-off",!effectsEnabled);
-    toggle.setAttribute("aria-pressed",String(effectsEnabled));
-    toggle.textContent = effectsEnabled ? "✨ 动效：开" : "✨ 动效：关";
-    if (animationId) cancelAnimationFrame(animationId);
-    animationId = 0;
-    lastTime = 0;
-    if (effectsEnabled && !document.hidden && ctx) animationId = requestAnimationFrame(draw);
+  for(const s of streaks){
+    s.x+=s.speed*dt;s.y-=s.speed*.35*dt;
+    if(s.x>width+s.length||s.y<-s.length){s.x=-s.length;s.y=Math.random()*height;}
+    const gradient=ctx.createLinearGradient(s.x-s.length,s.y+s.length*.35,s.x,s.y);
+    gradient.addColorStop(0,"transparent");gradient.addColorStop(1,"#8bedffbb");
+    ctx.strokeStyle=gradient;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(s.x-s.length,s.y+s.length*.35);ctx.lineTo(s.x,s.y);ctx.stroke();
   }
-
-  toggle.addEventListener("click", () => {
-    if (reduceMotion.matches && !effectsEnabled) {
-      notify("系统已启用减少动态效果，请在系统设置中调整");
-      return;
-    }
-    effectsEnabled = !effectsEnabled;
-    syncEffects();
-  });
-  reduceMotion.addEventListener("change", event => {
-    effectsEnabled = !event.matches;
-    syncEffects();
-  });
-  document.addEventListener("visibilitychange", syncEffects);
-  window.addEventListener("resize", resizeCanvas, {passive:true});
-  resizeCanvas();
-  syncEffects();
-})();
+  frameId=requestAnimationFrame(draw);
+}
+function createFlower(){
+  if(!effectsEnabled||document.hidden||$("#flowers").children.length>=12)return;
+  const flower=document.createElementNS("http://www.w3.org/2000/svg","svg");
+  flower.setAttribute("viewBox","0 0 90 100");
+  flower.classList.add("iris");
+  const seconds=13+Math.random()*9;
+  flower.style.setProperty("--top",(8+Math.random()*80)+"%");
+  flower.style.setProperty("--size",(24+Math.random()*23)+"px");
+  flower.style.setProperty("--duration",seconds+"s");
+  const use=document.createElementNS("http://www.w3.org/2000/svg","use");
+  use.setAttribute("href","#irisFlower");
+  flower.append(use);$("#flowers").append(flower);
+  flower.addEventListener("animationend",()=>flower.remove(),{once:true});
+  setTimeout(()=>flower.remove(),(seconds+1)*1000);
+}
+function syncEffects(){
+  cancelAnimationFrame(frameId);clearInterval(flowerTimer);
+  document.body.classList.toggle("effects-off",!effectsEnabled);
+  $("#effectsButton").textContent="动态特效："+(effectsEnabled?"开启":"关闭");
+  $("#effectsButton").setAttribute("aria-pressed",String(effectsEnabled));
+  if(effectsEnabled&&!document.hidden){
+    lastTime=performance.now();
+    if(ctx)frameId=requestAnimationFrame(draw);
+    createFlower();flowerTimer=setInterval(createFlower,1800);
+  }else $("#flowers").replaceChildren();
+}
+$("#effectsButton").addEventListener("click",()=>{
+  if(motionPreference.matches){
+    notify("系统已启用减少动态效果，页面遵循系统设置。");
+    return;
+  }
+  effectsEnabled=!effectsEnabled;syncEffects();
+});
+motionPreference.addEventListener("change",event=>{
+  effectsEnabled=!event.matches;syncEffects();
+});
+document.addEventListener("visibilitychange",syncEffects);
+addEventListener("resize",resizeCanvas,{passive:true});
+resizeCanvas();syncEffects();
 </script>
 </body>
 </html>
-
