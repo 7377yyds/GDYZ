@@ -5,7 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080e24">
 <title>💎7377高达宇宙💎｜机甲是男人的浪漫</title>
+
+<link rel="preload"
+      as="image"
+      href="./gundam-bg.webp"
+      type="image/webp"
+      fetchpriority="high">
+
 <style>
+
 :root{
   color-scheme:dark;
   --bg:#070b1b;--panel:rgba(11,19,43,.9);
@@ -256,85 +264,68 @@ body.effects-off #flowers,body.effects-off #particles{display:none}
   *,*::before{animation:none!important;transition:none!important}
   #flowers,#particles{display:none}
 }
-</style>
-/* 建立独立层叠环境，让负层级背景正常显示 */
+/* ===== 樱花高达全屏背景 ===== */
+
+/* 建立独立层叠环境，让背景稳定显示在内容底层 */
 body{
   position:relative;
   isolation:isolate;
   min-height:100vh;
 }
 
-/* 全屏图片背景：不参与布局，不影响按钮点击 */
-.site-background{
+/* 使用已有的背景容器，无需额外添加 HTML */
+.ambient{
   position:fixed;
   inset:0;
-  z-index:-5;
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:60% center;
-  opacity:.6;
-  pointer-events:none;
-  user-select:none;
-}
-
-/* 原来的纯色底层改成透明光晕，避免遮住图片 */
-.ambient{
   z-index:-4;
-  background:
-    radial-gradient(
-      ellipse at 8% 16%,
-      rgba(18,103,188,.14),
-      transparent 45%
+  pointer-events:none;
+
+  background-color:#080e24;
+  background-image:
+    linear-gradient(
+      rgba(7,11,27,.30),
+      rgba(7,11,27,.50)
     ),
-    radial-gradient(
-      ellipse at 94% 42%,
-      rgba(191,38,127,.10),
-      transparent 44%
-    );
+    url("./gundam-bg.webp");
+
+  background-position:center,center;
+  background-size:cover,cover;
+  background-repeat:no-repeat;
 }
 
-/* 网格淡一点，让樱花和机甲更清楚 */
-.grid-bg{
-  opacity:.12;
-}
-
-/* 隐藏原来的矢量机甲插画 */
+/* 隐藏旧网格与旧机甲插画，突出图片 */
+.grid-bg,
 .mecha-bg{
   display:none;
 }
 
-/* 面板保留足够对比度，兼顾背景和文字阅读 */
+/* 调整卡片透明度，让背景透出，同时保持文字可读 */
 .panel{
   background:linear-gradient(
     125deg,
-    rgba(16,30,58,.86),
-    rgba(18,16,42,.84)
+    rgba(10,20,42,.82),
+    rgba(18,16,42,.78)
   );
 }
 
-/* 手机上自动裁切横图，尽量保留机甲头部 */
-@media(max-width:760px){
-  .site-background{
-    object-position:60% center;
-  }
+.sidebar{
+  background:rgba(10,19,44,.88);
 }
 
-</head>
-<body id="home">
-<img
-  class="site-background"
-  src="./gundam-bg.webp"
-  alt=""
-  aria-hidden="true"
-  width="1866"
-  height="1049"
-  fetchpriority="high"
-  loading="eager"
-  decoding="async"
->
+.topbar{
+  background:rgba(8,14,36,.90);
+}
 
+/* 手机竖屏适当调整取景，让机甲主体更突出 */
+@media(max-width:760px){
+  .ambient{
+    background-position:center,60% center;
+  }
+}
+</style>
+</head>
+
+<body id="home">
 <div class="ambient" aria-hidden="true"></div>
 <div class="grid-bg" aria-hidden="true"></div>
 <canvas id="particles" aria-hidden="true"></canvas>
@@ -867,10 +858,6 @@ motionPreference.addEventListener("change",event=>{
 document.addEventListener("visibilitychange",syncEffects);
 addEventListener("resize",resizeCanvas,{passive:true});
 resizeCanvas();syncEffects();
-</script>
-</body>
-</html>
-
 </script>
 </body>
 </html>
