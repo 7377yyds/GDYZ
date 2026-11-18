@@ -11,7 +11,7 @@
   --blue:#83caff;
   --line:rgba(79,173,255,.44);
   --panel:rgba(4,13,25,.91);
-  --brightness:.65;
+  --brightness:1;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
@@ -527,8 +527,8 @@ body.watch{min-height:100dvh}
       <button type="button" id="resetVideo">恢复默认视频</button>
     </div>
 
-    <label for="brightness">视频亮度 <output id="brightnessValue">65%</output></label>
-    <input id="brightness" type="range" min="20" max="130" value="65">
+   <label for="brightness">视频亮度 <output id="brightnessValue">100%</output></label>
+   <input id="brightness" type="range" min="20" max="150" value="100">
     <button type="button" id="brightnessToggle" aria-pressed="true">亮度调节：开</button>
 
     <label for="volume">视频音量 <output id="volumeValue">35%</output></label>
